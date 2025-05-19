@@ -1,0 +1,36 @@
+@import "reset.css";
+@import "layout.css";
+
+:root {
+  /* Color */
+  --color-primary: #f0ece5; /* Hvid */
+  --color-secondary: #563432; /* Mørkebrun */
+  --color-tertiary: #8ab0cc; /* Blå */
+  --color-quaternary: #c3afa1; /* Lysebrun */
+  --color-accent: #842f2f; /* Rød */
+
+  /*Font*/
+  --font-heading: "Roboto", sans-serif;
+  --font-text: "Roboto", sans-serif;
+}
+
+h1 {
+  font-family: var(--font-heading);
+  font-size: var(--font-size-h1-desktop);
+  font-weight: 800; /* Bold */
+}
+h2 {
+  font-family: var(--font-heading);
+  font-size: var(--font-size-h1-desktop);
+  font-weight: 600; /* Semibold */
+}
+p {
+  font-family: var(--font-text);
+  font-size: var(--font-size-text-mobile);
+  font-weight: 400; /* Regular */
+  max-width: 45ch;
+}
+
+body {
+  background-color: var(--color-primary);
+}
