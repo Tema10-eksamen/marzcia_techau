@@ -27,10 +27,6 @@ h2 {
 p {
   font-family: var(--font-text);
   font-size: var(--font-size-text-mobile);
-  font-weight: 400; /* Regular */
+  font-weight: 300; /* Regular */
   max-width: 45ch;
-}
-
-body {
-  background-color: var(--color-primary);
 }

@@ -1,0 +1,52 @@
+---
+
+---
+
+<footer>
+  <div class="grid_1_1">
+    <div>
+      <div class="flex">
+        <img src="icons/email_icon.svg" alt="email" />
+        <p>E-mail: healer@marzcia.dk</p>
+      </div>
+      <div class="flex">
+        <img src="icons/in_icon.svg" alt="insta" />
+        <img src="icons/fa_icon.svg" alt="facebook" />
+      </div>
+    </div>
+    <p>Ønsker du at være træningsperson kan du følge min facebookside Marzcias Healings- & Clairvoyancecenter</p>
+  </div>
+</footer>
+<style>
+  footer {
+    background-color: var(--color-secondary);
+    color: var(--color-primary);
+    padding: 20px;
+  }
+  .grid_1_1 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+  .flex {
+    display: flex;
+    gap: 5px;
+  }
+
+  img {
+    width: 9%;
+    height: auto;
+  }
+
+  @media (min-width: 800px) {
+    img {
+      width: 4%;
+      height: auto;
+    }
+    .flex {
+      padding-top: 20px;
+      display: flex;
+      gap: 15px;
+    }
+  }
+</style>
