@@ -7,24 +7,60 @@ import Infosection from "../components/Infosection.astro";
 <MainLayout>
   <Hero />
   <Infosection />
-  <section>
-    <p>hej med dig jeg hedder kaj</p>
-    <br />
-    <p>hej med dig jeg hedder kaj</p>
-    <br />
-    <p>hej med dig jeg hedder kaj</p>
-    <br />
-    <p>hej med dig jeg hedder kaj</p>
-    <br />
-    <p>hej med dig jeg hedder kaj</p>
-    <br />
-    <p>hej med dig jeg hedder kaj</p>
-    <br />
-    <p>hej med dig jeg hedder kaj</p>
-    <br />
-    <p>hej med dig jeg hedder kaj</p>
-  </section>
-  <br />
-</MainLayout>
 
-<style></style>
+  <div class="section">
+    <section class="grid_1-1">
+      <div>
+        <h1>UDDANNELSER I HEALING & CLAIRVOYANCE</h1>
+        <p>Jeg tilbyder uddannelser inden for både healing og clairvoyance – med mulighed for forskellige overbygninger, så du kan fordybe og udvikle dine evner i dit eget tempo. Derudover afholder jeg løbende workshops med fokus på praktiske øvelser, personlig udvikling og spirituel indsigt.</p>
+        <br />
+      </div>
+
+      <div class="align order">
+        <img src="images/forside_ommig.webp" alt="portæt" />
+      </div>
+
+      <div>
+        <br />
+        <p>Jeg brænder for at undervise i healing og psykiske evner, fordi jeg tror på, at mennesker med stor sensitivitet og åbenhed har brug for redskaber til at forstå og bruge deres evner på en positiv og styrkende måde i hverdagen.</p>
+        <br />
+        <p>Klik nedenfor at læse mere om mine uddannelser og overbygninger.</p>
+      </div>
+    </section>
+  </div>
+
+  <section>
+    <div class="container">
+      <div class="card">
+        <img src="/images/billede2.webp" alt="Billede 2" />
+        <p>New Collection</p>
+        <a href="#"> Read more </a>
+      </div>
+    </div>
+  </section>
+</MainLayout>
+<br />
+
+<style>
+  .section {
+    background-color: var(--color-quaternary);
+    margin-top: 50px;
+    padding: 20px;
+  }
+  .align {
+    display: flex;
+    justify-content: center;
+  }
+  img {
+    width: 50%;
+    height: auto;
+    border-radius: 3%;
+  }
+
+  @media (min-width: 800px) {
+    .grid_1-1 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+</style>
