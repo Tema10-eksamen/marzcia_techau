@@ -140,10 +140,10 @@
   const headerEl = document.querySelector(".header");
 
   window.addEventListener("scroll", () => {
-    if (window.scrollY > 50) {
+    if (window.scrollY > 200) {
       // hvis px er over 50 vises header
       headerEl.classList.add("header_scroll");
-    } else if (window.scrollY <= 50) {
+    } else if (window.scrollY <= 200) {
       // hvis px er over 50 vises header
       headerEl.classList.remove("header_scroll");
     }
