@@ -1,0 +1,166 @@
+---
+
+---
+
+<header class="header">
+  <div class="logo"><a href="/">MARZCIA TECHAU</a></div>
+  <nav>
+    <ul class="menu">
+      <li><a href="/">KALENDER</a></li>
+      <li><a href="/uddannelser">UDDANNELSER</a></li>
+      <li><a href="/">SHOP</a></li>
+      <li><a href="/biografi">BIOGRAFI</a></li>
+      <!-- <li><a class="basket" href="/biografi"><img src="icons/basket_icon.svg" alt="..." /></a></li> -->
+    </ul>
+  </nav>
+
+  <div class="burger">
+    <div class="line"></div>
+    <div class="line"></div>
+    <div class="line"></div>
+  </div>
+</header>
+
+<style>
+  .header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
+    padding: 20px;
+    width: 100%; /* pga position fixed*/
+    transition: all 0.5s; /* smooth scroll til header*/
+    font-family: var(--font-heading);
+    font-size: var(--font-size-h1-desktop);
+    color: aliceblue;
+    z-index: 100;
+  }
+
+  .header_scroll {
+    background-color: var(--color-secondary);
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+  }
+
+  .menu {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+  }
+
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .logo a {
+    color: var(--color-primary);
+    text-decoration: none;
+    transition: color 0.6s;
+  }
+  .logo a:hover {
+    color: var(--color-accent);
+  }
+
+  .menu li {
+    margin-right: 20px;
+  }
+
+  .menu li:last-child {
+    margin-right: 0;
+  }
+
+  .menu a {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    transition: color 0.6s;
+    text-align: end;
+    color: var(--color-primary);
+  }
+  .menu a:hover {
+    color: var(--color-accent);
+  }
+
+  .burger {
+    width: 30px;
+    height: 20px;
+    cursor: pointer;
+  }
+
+  .burger .line {
+    width: 100%;
+    height: 2px;
+    background-color: var(--color-primary);
+    margin-bottom: 5px;
+    transition: 0.2s linear;
+  }
+  .burger {
+    display: none;
+  }
+
+  @media screen and (max-width: 980px) {
+    .menu {
+      display: none;
+    }
+    .burger {
+      display: block;
+    }
+    .burger.active .line:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px);
+      transition: 0.2s linear;
+    }
+
+    .burger.active .line:nth-child(2) {
+      opacity: 0;
+      transition: 0.15s linear;
+    }
+
+    .burger.active .line:nth-child(3) {
+      transform: rotate(-45deg) translate(5px, -5px);
+      transition: 0.2s linear;
+    }
+    nav.active .menu {
+      display: block;
+      background-color: var(--color-tertiary);
+      position: absolute;
+      top: 50px;
+      right: 0;
+      width: 50%;
+      box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+      z-index: 1;
+    }
+
+    nav.active .menu li {
+      margin: 10px 20px;
+    }
+  }
+</style>
+
+<script>
+  const headerEl = document.querySelector(".header");
+
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > 50) {
+      // hvis px er over 50 vises header
+      headerEl.classList.add("header_scroll");
+    } else if (window.scrollY <= 50) {
+      // hvis px er over 50 vises header
+      headerEl.classList.remove("header_scroll");
+    }
+  });
+
+  const burger = document.querySelector(".burger");
+  const nav = document.querySelector("nav");
+  const menu = document.querySelector(".menu");
+
+  burger.addEventListener("click", burgerClick);
+  function burgerClick() {
+    burger.classList.toggle("active");
+    nav.classList.toggle("active");
+  }
+  menu.addEventListener("click", menuClick);
+  function menuClick() {
+    burger.classList.remove("active");
+    nav.classList.remove("active");
+  }
+</script>

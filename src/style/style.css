@@ -5,7 +5,7 @@
   /* Color */
   --color-primary: #f0ece5; /* Hvid */
   --color-secondary: #563432; /* Mørkebrun */
-  --color-tertiary: #8ab0cc; /* Blå */
+  --color-tertiary: #c7b299; /* Blå */
   --color-quaternary: #c3afa1; /* Lysebrun */
   --color-accent: #842f2f; /* Rød */
 
@@ -21,12 +21,7 @@ h1 {
 }
 h2 {
   font-family: var(--font-heading);
-  font-size: var(--font-size-h1-desktop);
-  font-weight: 600; /* Semibold */
 }
 p {
   font-family: var(--font-text);
-  font-size: var(--font-size-text-mobile);
-  font-weight: 300; /* Regular */
-  max-width: 45ch;
 }
