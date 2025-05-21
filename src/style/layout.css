@@ -5,6 +5,9 @@ body {
   background-color: var(--color-primary);
 }
 
-main {
+body {
+  background-color: var(--color-primary);
+}
+section {
   padding-inline: 2rem;
 }
