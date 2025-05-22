@@ -1,9 +1,9 @@
-body {
+/* body {
   min-height: 100svh;
   display: grid;
   grid-template-rows: auto 1fr auto;
   background-color: var(--color-primary);
-}
+} */
 
 body {
   background-color: var(--color-primary);
