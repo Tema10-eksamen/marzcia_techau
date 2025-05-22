@@ -2,6 +2,8 @@
 import MainLayout from "../layouts/MainLayout.astro";
 import Hero from "../components/Hero.astro";
 import Infosection from "../components/Infosection.astro";
+import Carousel from "../components/Carousel.astro";
+import Anmeldelser from "../components/Anmeldelser.astro";
 ---
 
 <MainLayout>
@@ -29,15 +31,14 @@ import Infosection from "../components/Infosection.astro";
     </section>
   </div>
 
-  <section>
-    <div class="container">
-      <div class="card">
-        <img src="/images/billede2.webp" alt="Billede 2" />
-        <p>New Collection</p>
-        <a href="#"> Read more </a>
-      </div>
-    </div>
-  </section>
+  <Carousel />
+  <div>
+    <br />
+    <p>Jeg brænder for at undervise i healing og psykiske evner, fordi jeg tror på, at mennesker med stor sensitivitet og åbenhed har brug for redskaber til at forstå og bruge deres evner på en positiv og styrkende måde i hverdagen.</p>
+    <br />
+    <p>Klik nedenfor at læse mere om mine uddannelser og overbygninger.</p>
+  </div>
+  <Anmeldelser />
 </MainLayout>
 <br />
 

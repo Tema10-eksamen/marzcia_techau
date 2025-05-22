@@ -1,6 +1,6 @@
 @import "reset.css";
 @import "layout.css";
-/* Importing Google Font Roboto*/
+/* Importing Google Font Roboto */
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
 
 :root {
@@ -20,12 +20,15 @@ h1 {
   font-family: var(--font-heading);
   font-weight: 700; /* Bold */
   font-style: normal;
+  color: var(--color-secondary);
 }
 h2 {
   font-family: var(--font-heading);
   font-weight: 600; /* Semibold */
+  color: var(--color-secondary);
 }
 p {
   font-family: var(--font-text);
   font-weight: 400; /* Regular */
+  color: var(--color-secondary);
 }

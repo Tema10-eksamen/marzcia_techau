@@ -1,0 +1,149 @@
+---
+
+---
+
+<div class="image">
+  <section>
+    <div class="section">
+      <button class="carousel-arrow carousel-arrow--prev"> &#8249; </button>
+      <button class="carousel-arrow carousel-arrow--next"> &#8250; </button>
+
+      <div class="container" dir="ltr">
+        <!-- The dir attribute specifies the text direction of the element's content. -->
+        <div class="slide">
+          <p>Ida Gabe anbefaler Marzcia Techau</p>
+          <p>“Jeg kan på det varmeste anbefale Marzcia. Hun er vildt dygtig og mega rumlig.”</p>
+        </div>
+
+        <div class="slide">
+          <p>Ida Gabe anbefaler Marzcia Techau</p>
+          <br />
+          <p>“Jeg kan på det varmeste anbefale Marzcia. Hun er vildt dygtig og mega rumlig.”</p>
+        </div>
+
+        <div class="slide">
+          <p>Ida Gabe anbefaler Marzcia Techau</p>
+          <br />
+          <p>“Jeg kan på det varmeste anbefale Marzcia. Hun er vildt dygtig og mega rumlig.”</p>
+        </div>
+
+        <div class="slide">
+          <p>Ida Gabe anbefaler Marzcia Techau</p>
+          <br />
+          <p>“Jeg kan på det varmeste anbefale Marzcia. Hun er vildt dygtig og mega rumlig.”</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<style>
+  a {
+    text-decoration: none;
+  }
+
+  img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  .image {
+    background-image: url(images/anmeld.webp);
+    background-size: cover;
+  }
+
+  /* carousel */
+  .section {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 64px;
+  }
+
+  .container {
+    margin: 16px 48px;
+    overflow-x: auto;
+    display: flex;
+    width: 100%;
+    gap: 8px;
+    align-items: center;
+    scroll-snap-type: x mandatory;
+    flex-flow: row nowrap;
+    scroll-behavior: smooth;
+  }
+
+  .slide {
+    flex: 1 0 30%;
+    aspect-ratio: 1;
+    flex-flow: column nowrap;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    scroll-snap-align: center;
+    background-color: none;
+    gap: 8px;
+    border-radius: 5px;
+    padding: 20px;
+  }
+
+  /* arrow */
+  .carousel-arrow {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    margin-block: auto;
+    height: fit-content;
+    width: 48px;
+    background-color: var(--color-primary);
+    color: var(--color-secondary);
+    border: none;
+    font-size: 3rem;
+    padding: 0;
+    cursor: pointer;
+    transition: opacity 100ms;
+  }
+
+  .carousel-arrow:hover,
+  .carousel-arrow:focus {
+    opacity: 1;
+    color: red;
+  }
+
+  .carousel-arrow--prev {
+    left: 0;
+  }
+
+  .carousel-arrow--next {
+    right: 0;
+  }
+
+  @media (max-width: 600px) {
+    .carousel-slide {
+      flex: 1 0 90%;
+    }
+  }
+
+  /* @media (min-width: 800px) {
+    .carousel-slide {
+      flex: 1 0 90%;
+    }
+  } */
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const carousel = document.querySelector(".container"); //variabler
+    const slide = document.querySelector(".slide"); //variabler
+
+    function handleCarouselMove(positive = true) {
+      //opretter funktionen -> positive=true, vi slider mod højre, false venstre
+      const slideWidth = slide.clientWidth; //slidelængden
+      const scrollAmount = positive ? slideWidth : -slideWidth;
+      carousel.scrollBy({ left: scrollAmount, behavior: "smooth" });
+    }
+
+    document.querySelector(".carousel-arrow--prev").addEventListener("click", () => handleCarouselMove(false));
+    document.querySelector(".carousel-arrow--next").addEventListener("click", () => handleCarouselMove(true));
+  });
+</script>
