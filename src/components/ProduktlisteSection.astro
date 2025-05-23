@@ -4,162 +4,179 @@ import ProduktlisteCard from "./ProduktlisteCard.astro";
 ---
 
 <section class="reiki-section">
-  <img class="bg-image" src="illustrationer/reiki.svg" alt="Reiki" />
+  <!-- Baggrundsbillede med lav opacity -->
+  <img class="bg-image" src="illustrationer/reiki.svg" alt="Reiki" aria-hidden="true" />
+
+  <!-- Informationsblok med titel og tekst -->
   <div class="info">
     <h2>REIKI</h2>
     <p>Idéen bag Reiki-healing er, at alt i universet er energi, og at healeren kan fungere som en slags kanal for en universel livsenergi, som healeren overfører til sin klient. Jeg ser Reiki som en universel kærlighedsenergi af hvidt lys, der er til stede i hele verden og hele universet.</p>
     <p>Alle kan lære at heale med Reiki og der er ikke nogen religion forbundet til det.</p>
   </div>
 
+  <!-- Underoverskrift for slideren -->
   <h3>Mine kommende Reiki-uddannelser:</h3>
 
+  <!-- Slider container -->
   <div class="slider">
+    <!-- Knappen til forrige kort -->
     <button class="prev" aria-label="Forrige">←</button>
 
+    <!-- Wrapper der skjuler overskydende slides -->
     <div class="card-wrapper">
+      <!-- Track, der bevæges for at vise slides -->
       <div class="card-track">
+        <!-- Hver slide indeholder et ProduktlisteCard-komponent -->
         <div class="card-slide"><ProduktlisteCard /></div>
         <div class="card-slide"><ProduktlisteCard /></div>
         <div class="card-slide"><ProduktlisteCard /></div>
       </div>
     </div>
 
+    <!-- Knappen til næste kort -->
     <button class="next" aria-label="Næste">→</button>
   </div>
+</section>
 
-  <style>
-    section {
-      background-color: var(--color-quaternary);
-      padding-top: 2rem;
-      padding-bottom: 3rem;
-      border-radius: 5px;
-      color: var(--color-secondary);
-      font-family: var(--font-text);
-    }
-    .card-produktliste {
-      display: flex;
-      justify-content: center; /* Centrerer horisontalt */
-      padding-top: 2rem;
-      padding-bottom: 2rem;
-    }
+<style>
+  /* --- Sektionens overordnede styling --- */
+  section {
+    background-color: var(--color-quaternary);
+    padding: 2rem 0 3rem 0;
+    border-radius: 5px;
+    color: var(--color-secondary);
+    font-family: var(--font-text);
+    position: relative; /* For at kunne positionere baggrundsbilledet */
+    overflow: hidden; /* Undgå at baggrundsbilledet stikker udenfor */
+  }
+
+  /* Baggrundsbilledet placeres absolut */
+  .bg-image {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: auto; /* alternativt: width: 40%; */
+    opacity: 0.1; /* Lav synlighed */
+    pointer-events: none; /* Forhindrer klik på billedet */
+    object-fit: cover;
+    z-index: 0; /* Læg bag tekst */
+  }
+
+  /* Info-sektionen: margin og max bredde */
+  .info,
+  h3 {
+    margin: 0 2rem 1rem 2rem;
+    max-width: 40ch;
+    position: relative; /* Gør den over bg-billedet */
+    z-index: 1;
+  }
+
+  /* Specifik styling for h2 og p i info */
+  .info h2 {
+    margin-bottom: 0.5rem;
+  }
+
+  .info p {
+    margin-bottom: 1rem;
+  }
+
+  /* Slider-container med flexbox til centering */
+  .slider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0; /* ingen mellemrum mellem elementer */
+    margin-top: 2rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* Wrapper til kortene: fast bredde, skjuler overflow */
+  .card-wrapper {
+    width: 300px; /* Bredde matcher kort */
+    overflow: visible; /* tillader knapper udenfor */
+    display: flex;
+    justify-content: center;
+    position: relative;
+  }
+
+  /* Track der ruller kortene sideværts */
+  .card-track {
+    display: flex;
+    width: calc(300px * 3); /* 3 kort */
+    transition: transform 0.3s ease-in-out;
+  }
+
+  /* Hvert kort har fast bredde og centreret indhold */
+  .card-slide {
+    flex-shrink: 0;
+    width: 300px;
+    display: flex;
+    justify-content: center;
+    position: relative;
+  }
+
+  /* Stil til slider knapperne */
+  button.prev,
+  button.next {
+    font-size: 2rem;
+    background: none;
+    border: none;
+    color: var(--color-secondary);
+    cursor: pointer;
+    padding: 0;
+    margin: 0;
+    line-height: 1;
+    position: relative;
+    z-index: 10; /* Gør knapperne klikbare */
+    user-select: none;
+  }
+
+  /* --- Responsive styling til desktop --- */
+  @media (min-width: 768px) {
+    /* Øget bredde på info-tekst */
     .info,
     h3 {
-      margin-bottom: 1rem;
-      margin-left: 2rem;
-      margin-right: 2rem;
-      max-width: 40ch;
+      max-width: 65ch;
+      margin: 1rem 3rem 1rem 3rem;
     }
-
-    .info h2 {
-      margin-bottom: 0.5rem;
-    }
-
-    .info p {
-      margin-bottom: 1rem;
-    }
-
-    .reiki-section {
-      position: relative; /* gør det muligt at positionere baggrundsbilledet inde i denne */
-      overflow: hidden; /* sørg for, at intet stikker ud */
-    }
-
+    /* Flyt baggrundsbilledet lidt væk fra kanten */
     .bg-image {
-      position: absolute;
-      right: 0;
-      top: 0;
-      height: 100%;
-      width: auto; /* eller prøv: width: 40%; hvis du vil styre størrelsen */
-      opacity: 0.1; /* lav synlighed */
-      z-index: 0; /* læg den bag alt andet */
-      pointer-events: none; /* så billedet ikke fanger klik */
-      object-fit: cover; /* sikrer at billedet ikke bliver deformt */
+      right: 8%;
     }
+  }
+</style>
 
-    /* Hjælp fra chat gpt til at lave slider*/
-    .slider {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0rem;
-      margin-top: 2rem;
-    }
+<script>
+  //Hjælp fra chat gpt til at lave sliderfunktionen
+  // Sliderfunktionalitet - viser korrekt kort ved klik på knapper
+  let currentIndex = 0;
 
-    .card-wrapper {
-      width: 300px; /* samme som kortbredde */
-      overflow: visible; /* gør plads til knappen */
-      position: relative;
-      display: flex;
-      justify-content: center;
-    }
+  // Funktion til at vise kort baseret på index
+  function showCard(index) {
+    const cards = document.querySelectorAll(".card-slide");
+    const total = cards.length;
 
-    .card-track {
-      display: flex;
-      transition: transform 0.3s ease-in-out;
-      width: calc(300px * 3); /* 3 kort, fast bredde */
-    }
+    // Loop rundt ved sidste eller første kort
+    if (index < 0) index = total - 1;
+    if (index >= total) index = 0;
 
-    .card-slide {
-      position: relative; /* for at den indvendige knap kan positioneres relativt */
-      flex-shrink: 0;
-      display: flex;
-      justify-content: center;
-      width: 300px; /* samme bredde som wrapper */
-    }
+    currentIndex = index;
 
-    button.prev,
-    button.next {
-      position: relative;
-      z-index: 10;
-      font-size: 2rem;
-      background: none;
-      border: none;
-      color: var(--color-secondary);
-      cursor: pointer;
-      padding: 0;
-      margin: 0;
-      line-height: 1;
-    }
+    const cardWidth = cards[0].clientWidth; // Bredden af hvert kort
+    const track = document.querySelector(".card-track");
 
-    /* Desktop */
-    @media (min-width: 768px) {
-      .info {
-        max-width: 65ch;
-        margin-top: 1rem;
-        margin-left: 3rem;
-        margin-right: 3rem;
-      }
-      h3 {
-        margin-left: 3rem;
-        margin-right: 3rem;
-      }
-      .bg-image {
-        right: 8%;
-      }
-    }
-  </style>
+    // Flyt track så korrekt kort vises
+    track.style.transform = `translateX(-${index * cardWidth}px)`;
+  }
 
-  <script>
-    // Hjælp fra chat gpt til at lave slider
-    let currentIndex = 0;
+  // Initialisering af event listeners efter DOM er loaded
+  window.addEventListener("DOMContentLoaded", () => {
+    document.querySelector(".prev").addEventListener("click", () => showCard(currentIndex - 1));
+    document.querySelector(".next").addEventListener("click", () => showCard(currentIndex + 1));
 
-    function showCard(index) {
-      const cards = document.querySelectorAll(".card-slide");
-      const total = cards.length;
-
-      if (index < 0) index = total - 1;
-      if (index >= total) index = 0;
-
-      currentIndex = index;
-
-      const cardWidth = cards[0].clientWidth; // 300px
-      const track = document.querySelector(".card-track");
-      track.style.transform = `translateX(-${index * cardWidth}px)`; // Flyt med px, ikke %
-    }
-
-    window.addEventListener("DOMContentLoaded", () => {
-      document.querySelector(".prev").addEventListener("click", () => showCard(currentIndex - 1));
-      document.querySelector(".next").addEventListener("click", () => showCard(currentIndex + 1));
-      showCard(0);
-    });
-  </script>
-</section>
+    // Vis det første kort ved start
+    showCard(0);
+  });
+</script>

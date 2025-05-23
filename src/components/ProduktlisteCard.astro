@@ -2,74 +2,86 @@
 import "../style/style.css";
 ---
 
+<!-- Card-komponenten til et enkelt produkt/kursus -->
 <div class="card-produktliste">
+  <!-- Selve kortet med indhold -->
   <div class="card">
+    <!-- Rund baggrund med illustration placeret centralt -->
     <div class="cirkel-wrapper">
       <div class="cirkel"></div>
+      <!-- Baggrundscirkel -->
 
       <img class="illustration" src="illustrationer/reiki.svg" alt="Reiki" />
     </div>
+
+    <!-- Tekstindhold: nummer og titel -->
     <div class="forløb">
       <p>01</p>
       <h2>REIKI</h2>
     </div>
+
+    <!-- Dato for kurset -->
     <div class="dato">
       <p>15.-16. november 2025</p>
     </div>
   </div>
+
+  <!-- Book-knap, som overlapper kortets bund -->
   <button class="overlap-knap">Book</button>
 </div>
 
 <style>
+  /* --- Kortets overordnede container --- */
   .card-produktliste {
-    position: relative;
-    width: 200px;
-    padding-bottom: 1.5rem; /* plads til knappen udenfor kortet */
+    position: relative; /* Så vi kan positionere knappen absolut ift. kortet */
+    width: 200px; /* Fast bredde */
+    padding-bottom: 1.5rem; /* Rum under kortet til knappen */
     background-color: var(--color-primary);
     border-radius: 5px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Giver kortet en lille skygge*/
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Blid skygge for dybde */
   }
 
+  /* --- Selve kortets indhold --- */
   .card {
     width: 100%;
     padding: 10px;
     background-color: var(--color-primary);
     border-radius: 5px;
-    display: flex; /* Gør container til flexbox */
-    flex-direction: column; /* elementer kommer i en lodret række */
-    align-items: center; /* Center horisontalt */
-    justify-content: center; /* Center lodret */
-    justify-content: space-between;
+    display: flex;
+    flex-direction: column; /* Elementerne stables lodret */
+    align-items: center; /* Centrerer indhold horisontalt */
+    justify-content: space-between; /* Skaber afstand mellem elementer lodret */
   }
 
+  /* --- Knappen, som overlapper kortet --- */
   .overlap-knap {
     width: 100px;
-    position: absolute;
-    bottom: -1rem; /* halvt udenfor */
-    left: 50%;
-    transform: translateX(-50%);
+    position: absolute; /* Absolut positionering ift. .card-produktliste */
+    bottom: -1rem; /* Halvt udenfor kortets bund */
+    left: 50%; /* Centrer horisontalt */
+    transform: translateX(-50%); /* Justerer centreringsposition */
     background-color: var(--color-accent);
     border: none;
     color: var(--color-primary);
     cursor: pointer;
-    border-radius: 5px;
-    padding: 0.6rem 1.4rem;
     border-radius: 6px;
+    padding: 0.6rem 1.4rem;
     font-size: 1rem;
-    cursor: pointer;
-    transition: 0.3s ease;
+    transition: background-color 0.3s ease;
   }
+  /* Hover-effekt for knappen */
   .overlap-knap:hover {
     background-color: #5e1f1f;
   }
 
+  /* --- Illustration og cirkel --- */
   .card img {
-    width: 20%;
+    width: 20%; /* Billedets bredde i forhold til kortet */
     height: auto;
   }
 
   .cirkel-wrapper {
-    position: relative;
+    position: relative; /* For at kunne placere billedet absolut */
     width: 100px;
     height: 100px;
   }
@@ -78,33 +90,35 @@ import "../style/style.css";
     width: 100%;
     height: 100%;
     background-color: var(--color-quaternary);
-    border-radius: 50%;
+    border-radius: 50%; /* Rund cirkel */
   }
+
   .illustration {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%); /* Centrerer billedet i cirklen */
   }
 
+  /* --- Tekstindhold under illustrationen --- */
   .forløb {
     margin-top: 1.5rem;
     margin-bottom: 1.5rem;
     text-align: center;
   }
 
-  /* Desktop */
+  /* --- Responsivt design til desktop --- */
   @media (min-width: 768px) {
     .card-produktliste {
       width: 230px;
       height: 280px;
     }
     .card img {
-      width: 30%;
+      width: 30%; /* Større illustration på desktop */
       height: auto;
     }
     .dato {
-      margin-top: 1rem;
+      margin-top: 1rem; /* Lidt ekstra plads over dato */
     }
   }
 </style>
