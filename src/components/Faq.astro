@@ -1,0 +1,132 @@
+---
+
+---
+
+<section>
+  <div class="faq-container">
+    <h2>OFTE STILLEDE SPØRGSMÅL (FAQ)</h2>
+
+    <div class="faq-item">
+      <button class="faq-question">
+        Hvem er jeg?
+        <span class="arrow">&#10095;</span>
+      </button>
+      <div class="faq-answer">
+        <p>Jeg ønsker at bruge mine evner til at hjælpe andre både dyr og mennesker. Min vigtigste opgave er at kunne støtte andre til at få deres selvtillid og håb tilbage. Den åndelige verden kan hjælpe med at vise muligheder, hvor der ellers kun har været lukkede døre. Jeg er meget engageret i undervisning i healing og psykiske evner. Det er min holdning, at alle der er meget sensitive og/ eller har psykiske evner har brug for at forstå, hvordan de kan bruge dette positivt i deres liv.</p>
+      </div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-question">
+        Hvad er healing?
+        <span class="arrow">&#10095;</span>
+      </button>
+      <div class="faq-answer">
+        <p>Jeg ønsker at bruge mine evner til at hjælpe andre både dyr og mennesker. Min vigtigste opgave er at kunne støtte andre til at få deres selvtillid og håb tilbage. Den åndelige verden kan hjælpe med at vise muligheder, hvor der ellers kun har været lukkede døre. Jeg er meget engageret i undervisning i healing og psykiske evner. Det er min holdning, at alle der er meget sensitive og/ eller har psykiske evner har brug for at forstå, hvordan de kan bruge dette positivt i deres liv.</p>
+      </div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-question">
+        Hvad er clairvoyance?
+        <span class="arrow">&#10095;</span>
+      </button>
+      <div class="faq-answer">
+        <p>Jeg ønsker at bruge mine evner til at hjælpe andre både dyr og mennesker. Min vigtigste opgave er at kunne støtte andre til at få deres selvtillid og håb tilbage. Den åndelige verden kan hjælpe med at vise muligheder, hvor der ellers kun har været lukkede døre. Jeg er meget engageret i undervisning i healing og psykiske evner. Det er min holdning, at alle der er meget sensitive og/ eller har psykiske evner har brug for at forstå, hvordan de kan bruge dette positivt i deres liv.</p>
+      </div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-question">
+        Kan jeg få behandling af Marzcia?
+        <span class="arrow">&#10095;</span>
+      </button>
+      <div class="faq-answer">
+        <p>Jeg ønsker at bruge mine evner til at hjælpe andre både dyr og mennesker. Min vigtigste opgave er at kunne støtte andre til at få deres selvtillid og håb tilbage. Den åndelige verden kan hjælpe med at vise muligheder, hvor der ellers kun har været lukkede døre. Jeg er meget engageret i undervisning i healing og psykiske evner. Det er min holdning, at alle der er meget sensitive og/ eller har psykiske evner har brug for at forstå, hvordan de kan bruge dette positivt i deres liv.</p>
+      </div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-question">
+        Hvordan bliver jeg træningsperson?
+        <span class="arrow">&#10095;</span>
+      </button>
+      <div class="faq-answer">
+        <p>Jeg ønsker at bruge mine evner til at hjælpe andre både dyr og mennesker. Min vigtigste opgave er at kunne støtte andre til at få deres selvtillid og håb tilbage. Den åndelige verden kan hjælpe med at vise muligheder, hvor der ellers kun har været lukkede døre. Jeg er meget engageret i undervisning i healing og psykiske evner. Det er min holdning, at alle der er meget sensitive og/ eller har psykiske evner har brug for at forstå, hvordan de kan bruge dette positivt i deres liv.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .faq-container {
+    max-width: 80%;
+    /* margin: 50px auto; */
+    background: transparent;
+    padding: 30px;
+  }
+  .faq-item {
+    margin-bottom: 15px;
+    border: 1px solid var(--color-secondary);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+
+  .faq-question {
+    width: 100%;
+    background-color: var(--color-primary);
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 10px 10px 0 0;
+    transition: background-color 0.3s ease;
+  }
+  .faq-question.active {
+    background-color: var(--color-quaternary);
+    border-bottom: none;
+  }
+
+  .faq-answer {
+    display: none;
+    padding: 10px;
+    animation: fadeIn 0.3s ease-in-out;
+  }
+
+  .faq-question .arrow {
+    transition: transform 0.3s ease;
+  }
+
+  .faq-question.active .arrow {
+    transform: rotate(90deg);
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+</style>
+
+<script>
+  const questions = document.querySelectorAll(".faq-question");
+
+  questions.forEach((button) => {
+    button.addEventListener("click", () => {
+      const answer = button.nextElementSibling;
+      const isOpen = button.classList.contains("active");
+
+      // Luk alle andre
+      questions.forEach((btn) => {
+        btn.classList.remove("active");
+        btn.nextElementSibling.style.display = "none";
+      });
+
+      if (!isOpen) {
+        button.classList.add("active");
+        answer.style.display = "block";
+      }
+    });
+  });
+</script>
