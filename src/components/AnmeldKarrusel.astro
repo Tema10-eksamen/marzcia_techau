@@ -1,0 +1,113 @@
+---
+
+---
+
+<div class="background">
+  <div class="carousel-wrapper">
+    <button class="arrow left">&#10094;</button>
+    <div class="carousel" id="carousel">
+      <div class="card">
+        <p>Ida Gabe anbefaler Marzcia Techau</p>
+        <br />
+        <p>“Jeg kan på det varmeste anbefale Marzcia. Hun er vildt dygtig og mega rumlig.”</p>
+      </div>
+      <div class="card">
+        <p>Ida Gabe anbefaler Marzcia Techau</p>
+        <br />
+        <p>“Jeg kan på det varmeste anbefale Marzcia. Hun er vildt dygtig og mega rumlig.”</p>
+      </div>
+      <div class="card">
+        <p>Ida Gabe anbefaler Marzcia Techau</p>
+        <br />
+        <p>“Jeg kan på det varmeste anbefale Marzcia. Hun er vildt dygtig og mega rumlig.”</p>
+      </div>
+      <div class="card">
+        <p>Ida Gabe anbefaler Marzcia Techau</p>
+        <br />
+        <p>“Jeg kan på det varmeste anbefale Marzcia. Hun er vildt dygtig og mega rumlig.”</p>
+      </div>
+    </div>
+    <button class="arrow right">&#10095;</button>
+  </div>
+</div>
+
+<style>
+  .background {
+    background-image: url(images/anmeld.webp);
+    background-size: cover;
+    position: relative;
+  }
+
+  .carousel-wrapper {
+    position: relative;
+    overflow: hidden;
+    padding: 1rem 2rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
+  }
+
+  .carousel {
+    display: flex;
+    gap: 2rem;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding: 1rem;
+    scroll-behavior: smooth;
+  }
+
+  .card {
+    flex: 0 0 90%;
+    scroll-snap-align: start;
+    border-radius: 10px;
+    padding: 1rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .arrow {
+    position: absolute;
+    top: 40%;
+    transform: translateY(-50%);
+    background-color: transparent;
+    color: var(--color-secondary);
+    border: none;
+    font-size: 2rem;
+    padding: 0.5rem;
+    z-index: 10;
+    cursor: pointer;
+  }
+
+  .arrow.left {
+    left: 0;
+  }
+
+  .arrow.right {
+    right: 0;
+  }
+
+  .carousel-wrapper,
+  .carousel,
+  .card {
+    outline: 1px solid red;
+  }
+</style>
+
+<script>
+  const carousel = document.getElementById("carousel");
+  const leftBtn = document.querySelector(".arrow.left");
+  const rightBtn = document.querySelector(".arrow.right");
+
+  // Brug 2rem = 32px som dit gap
+  const card = carousel.querySelector(".card");
+  const cardWidth = card.offsetWidth + 32;
+
+  leftBtn.addEventListener("click", () => {
+    carousel.scrollBy({ left: -cardWidth, behavior: "smooth" });
+  });
+
+  rightBtn.addEventListener("click", () => {
+    carousel.scrollBy({ left: cardWidth, behavior: "smooth" });
+  });
+</script>
