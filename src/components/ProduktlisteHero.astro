@@ -2,12 +2,20 @@
 import "../style/style.css";
 ---
 
+<!-- Info-sektionen med titel og introduktion -->
 <div class="info">
   <h1>Healingsuddannelser</h1>
-  <p>Mine healingsuddannelser består af et grundforløb, med overbygningsforløb. <br class="desktop-br" /> Du kan tage alle uddannelserne i dit eget tempo og tilpasset din hverdag.</p>
+  <p>
+    Mine healingsuddannelser består af et grundforløb, med overbygningsforløb.
+    <!-- Linjeskift kun på desktop -->
+    <br class="desktop-br" />
+    Du kan tage alle uddannelserne i dit eget tempo og tilpasset din hverdag.
+  </p>
 </div>
 
+<!-- Sektion med to bokse (bullets) side om side på desktop -->
 <div class="bullets">
+  <!-- Box 1: Grundforløb -->
   <div class="box-1">
     <h2>Grundforløb:</h2>
     <ul>
@@ -17,6 +25,8 @@ import "../style/style.css";
     </ul>
     <p>Du skal minimum have 2 af de 3 healingsformer, før du kan tage overbygningskurserne.</p>
   </div>
+
+  <!-- Box 2: Overbygningsforløb -->
   <div class="box-2">
     <h2>overbygningsforløb:</h2>
     <ul>
@@ -29,9 +39,14 @@ import "../style/style.css";
 </div>
 
 <style>
+  /* --- Basis styling --- */
+
+  /* Info-sektion margin for at adskille fra toppen */
   .info {
     margin-top: 2rem;
   }
+
+  /* Baggrund og padding til bullets-sektionen */
   .bullets {
     background-color: var(--color-quaternary);
     margin-top: 2rem;
@@ -41,17 +56,19 @@ import "../style/style.css";
     border-radius: 5px;
   }
 
+  /* Grundlæggende tekststyling for de vigtigste elementer */
   h1,
   h2,
   p,
   ul,
   li {
-    margin-left: 2rem;
-    margin-right: 2rem;
+    margin-left: 1.5rem;
+    margin-right: 1.5rem;
     color: var(--color-secondary);
-    max-width: 40ch;
+    max-width: 40ch; /* Max bredde på tekst for bedre læsbarhed */
   }
 
+  /* Justering af margin på listeelementer i bullets */
   .bullets ul {
     margin-top: 0.5rem;
     margin-bottom: 0.5rem;
@@ -62,21 +79,26 @@ import "../style/style.css";
     margin-bottom: 0.5rem;
   }
 
+  /* H2 overskrifter i bullets med uppercase og lidt afstand ovenover */
   .bullets h2 {
     text-transform: uppercase;
     margin-top: 1rem;
   }
+
+  /* Afsnitsmargen for bedre luft */
   p {
     margin-bottom: 1.5rem;
     margin-top: 0.5rem;
   }
 
+  /* Linjeskift som kun vises på desktop */
   .desktop-br {
     display: none;
   }
 
-  /* Desktop */
+  /* --- Desktop styling fra 768px og op --- */
   @media (min-width: 768px) {
+    /* Øger margin og max bredde på tekst for større skærme */
     h1,
     h2,
     p,
@@ -87,31 +109,36 @@ import "../style/style.css";
       max-width: 65ch;
     }
 
+    /* Mere bundmargen på info-sektionen */
     .info {
       margin-bottom: 3rem;
     }
 
+    /* Bullets som grid med 2 kolonner, padding og gap */
     .bullets {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr; /* To lige store kolonner */
       margin-bottom: 4rem;
-      gap: 0.75rem;
-      padding-left: 60px;
+      gap: 0.75rem; /* Lidt afstand mellem boksene */
+      padding-left: 60px; /* Indvendig afstand til sider */
       padding-right: 60px;
       padding-top: 2rem;
       padding-bottom: 2rem;
     }
 
+    /* Øget margin-top på paragrafer inde i boksene */
     .box-1 p,
     .box-2 p {
       margin-top: 2rem;
     }
 
+    /* Mere luft mellem listeelementer */
     li {
       margin-top: 2rem;
       margin-bottom: 2rem;
     }
 
+    /* Vis linjeskiftet på desktop */
     .desktop-br {
       display: inline;
     }
