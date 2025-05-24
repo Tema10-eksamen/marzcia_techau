@@ -16,7 +16,7 @@
         <p>MEDITATIONER</p>
       </div>
     </a>
-    <a href="/#">
+    <a href="/uddannelser">
       <div class="flex">
         <img class="uddannelse" src="illustrationer/uddan.svg" alt="uddannelse" />
         <p>UDDANNELSER</p>
@@ -41,14 +41,13 @@
     }
     .infosection {
       background-color: var(--color-secondary);
+      padding: 5px;
     }
+
     .grid_4 {
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr 1fr;
-      object-fit: contain;
-      align-content: baseline;
-      align-items: center;
-      justify-content: baseline;
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
     }
 
     .flex {
@@ -58,25 +57,60 @@
       gap: 10px;
     }
 
+    p {
+      font-size: 0.9rem;
+    }
     .healingtdagen {
-      width: 19%;
+      width: 20%;
       height: auto;
       aspect-ratio: 377.81/343.45;
     }
     .meditation {
-      width: 18%;
+      width: 30%;
       height: auto;
       aspect-ratio: 465.26/512;
     }
     .uddannelse {
-      width: 28%;
+      width: 40%;
       height: auto;
       aspect-ratio: 512/294.88;
     }
     .bøger {
-      width: 25%;
+      width: 80%;
       height: auto;
       aspect-ratio: 512/372.2;
+    }
+    @media (min-width: 768px) {
+      p {
+        font-size: 1.4rem;
+      }
+      .grid_4 {
+        margin-left: 2rem;
+        margin-right: 2rem;
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+      }
+      .healingtdagen {
+        width: 25%;
+        height: auto;
+        aspect-ratio: 377.81/343.45;
+      }
+      .meditation {
+        width: 40%;
+        height: auto;
+        aspect-ratio: 465.26/512;
+      }
+      .uddannelse {
+        width: 60%;
+        height: auto;
+        aspect-ratio: 512/294.88;
+      }
+      .bøger {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 512/372.2;
+      }
     }
   </style>
 </div>

@@ -65,7 +65,7 @@
   .arrow {
     display: none;
     position: absolute;
-    top: 40%;
+    top: 45%;
     transform: translateY(-50%);
     background-color: transparent;
     color: var(--color-secondary);
@@ -77,21 +77,24 @@
   }
 
   .arrow.left {
-    left: 0;
+    left: 0.5rem;
   }
 
   .arrow.right {
-    right: 0;
+    right: 0.5rem;
   }
-
-  /* Kun vis pile og karousel på mobil */
+  .arrow:hover {
+    transition: 0.3s;
+    color: var(--color-primary);
+  }
+  /* Karrusel kun mobil */
   @media (max-width: 767px) {
     .arrow {
       display: block;
     }
   }
 
-  /* Desktop: vis cards i rækker */
+  /* Desktop */
   @media (min-width: 768px) {
     .carousel {
       overflow-x: visible;

@@ -11,65 +11,66 @@ import Faq from "../components/Faq.astro";
   <Hero />
   <Infosection />
 
-  <div class="section">
-    <section class="grid_1-1">
-      <div>
-        <h1>UDDANNELSER I HEALING & CLAIRVOYANCE</h1>
-        <p>Jeg tilbyder uddannelser inden for både healing og clairvoyance – med mulighed for forskellige overbygninger, så du kan fordybe og udvikle dine evner i dit eget tempo. Derudover afholder jeg løbende workshops med fokus på praktiske øvelser, personlig udvikling og spirituel indsigt.</p>
-        <br />
-      </div>
+  <section class="grid_1-1">
+    <div>
+      <h1>UDDANNELSER I HEALING & CLAIRVOYANCE</h1>
+      <p>Jeg tilbyder uddannelser inden for både healing og clairvoyance – med mulighed for forskellige overbygninger, så du kan fordybe og udvikle dine evner i dit eget tempo. Derudover afholder jeg løbende workshops med fokus på praktiske øvelser, personlig udvikling og spirituel indsigt.</p>
+      <br />
+      <p>Jeg brænder for at undervise i healing og psykiske evner, fordi jeg tror på, at mennesker med stor sensitivitet og åbenhed har brug for redskaber til at forstå og bruge deres evner på en positiv og styrkende måde i hverdagen.</p>
+      <br />
+      <p>Klik nedenfor at læse mere om mine uddannelser og overbygninger.</p>
+      <br />
+    </div>
 
-      <div class="align order">
-        <img src="images/forside_ommig.webp" alt="portæt" />
-      </div>
-
-      <div>
-        <br />
-        <p>Jeg brænder for at undervise i healing og psykiske evner, fordi jeg tror på, at mennesker med stor sensitivitet og åbenhed har brug for redskaber til at forstå og bruge deres evner på en positiv og styrkende måde i hverdagen.</p>
-        <br />
-        <p>Klik nedenfor at læse mere om mine uddannelser og overbygninger.</p>
-      </div>
-    </section>
-  </div>
+    <div class="align">
+      <img src="images/forside_ommig.webp" alt="portæt" />
+    </div>
+  </section>
 
   <Karrusel />
-  <div>
-    <br />
-    <p>Jeg brænder for at undervise i healing og psykiske evner, fordi jeg tror på, at mennesker med stor sensitivitet og åbenhed har brug for redskaber til at forstå og bruge deres evner på en positiv og styrkende måde i hverdagen.</p>
-    <br />
-    <p>Klik nedenfor at læse mere om mine uddannelser og overbygninger.</p>
-  </div>
+
   <Faq />
-  <div>
-    <br />
-    <p>Jeg brænder for at undervise i healing og psykiske evner, fordi jeg tror på, at mennesker med stor sensitivitet og åbenhed har brug for redskaber til at forstå og bruge deres evner på en positiv og styrkende måde i hverdagen.</p>
-    <br />
-    <p>Klik nedenfor at læse mere om mine uddannelser og overbygninger.</p>
-  </div>
+
   <AnmeldKarrusel />
 </MainLayout>
 <br />
 
 <style>
-  .section {
+  section {
     background-color: var(--color-quaternary);
-    margin-top: 50px;
-    padding: 20px;
+    margin-top: 4rem;
+    margin-bottom: 4rem;
+    padding: 25px;
   }
   .align {
     display: flex;
     justify-content: center;
   }
   img {
-    width: 50%;
+    width: 100%;
     height: auto;
     border-radius: 3%;
   }
 
-  @media (min-width: 800px) {
+  @media (min-width: 768px) {
     .grid_1-1 {
+      position: relative;
       display: grid;
       grid-template-columns: 1fr 1fr;
+    }
+
+    section {
+      padding: 50px;
+    }
+    .align {
+      position: absolute;
+      top: -10%;
+      left: 43%;
+    }
+    img {
+      width: 35%;
+      height: auto;
+      border-radius: 3%;
     }
   }
 </style>
