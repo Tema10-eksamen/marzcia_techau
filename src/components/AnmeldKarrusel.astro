@@ -3,28 +3,23 @@
 ---
 
 <div class="background">
-  <div class="carousel-wrapper">
+  <div class="carousel-wrapper" id="anmeld-wrapper">
     <button class="arrow left">&#10094;</button>
-    <div class="carousel" id="carousel">
+    <div class="carousel">
       <div class="card">
         <p>Ida Gabe anbefaler Marzcia Techau</p>
         <br />
         <p>“Jeg kan på det varmeste anbefale Marzcia. Hun er vildt dygtig og mega rumlig.”</p>
       </div>
       <div class="card">
-        <p>Ida Gabe anbefaler Marzcia Techau</p>
+        <p>John Kent anbefaler Marzcia Techau</p>
         <br />
-        <p>“Jeg kan på det varmeste anbefale Marzcia. Hun er vildt dygtig og mega rumlig.”</p>
+        <p>“Marzcia er en af de få som har den sande gave. Og alt hvad hun gør, gør hun med respekt og kærlighed.”</p>
       </div>
       <div class="card">
-        <p>Ida Gabe anbefaler Marzcia Techau</p>
+        <p>Linda Hansen anbefaler Marzcia Techau</p>
         <br />
-        <p>“Jeg kan på det varmeste anbefale Marzcia. Hun er vildt dygtig og mega rumlig.”</p>
-      </div>
-      <div class="card">
-        <p>Ida Gabe anbefaler Marzcia Techau</p>
-        <br />
-        <p>“Jeg kan på det varmeste anbefale Marzcia. Hun er vildt dygtig og mega rumlig.”</p>
+        <p>“Marzcia er hjertelig og ser alle. Hun er ultra skarp i sine læsninger. Måden hun altid har hjertet med i sit arbejde kendetegner hende 100 %. ”</p>
       </div>
     </div>
     <button class="arrow right">&#10095;</button>
@@ -36,6 +31,7 @@
     background-image: url(images/anmeld.webp);
     background-size: cover;
     position: relative;
+    z-index: 0;
   }
 
   .carousel-wrapper {
@@ -47,6 +43,7 @@
   }
 
   .carousel {
+    position: relative;
     display: flex;
     gap: 2rem;
     overflow-x: auto;
@@ -56,7 +53,7 @@
   }
 
   .card {
-    flex: 0 0 90%;
+    flex: 0 0 80%;
     scroll-snap-align: start;
     border-radius: 10px;
     padding: 1rem;
@@ -64,50 +61,64 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    background-color: #f0ece565;
   }
 
   .arrow {
     position: absolute;
-    top: 40%;
+    top: 47%;
     transform: translateY(-50%);
     background-color: transparent;
     color: var(--color-secondary);
     border: none;
     font-size: 2rem;
-    padding: 0.5rem;
     z-index: 10;
     cursor: pointer;
   }
 
   .arrow.left {
-    left: 0;
+    left: 0.5rem;
   }
 
   .arrow.right {
-    right: 0;
+    right: 0.5rem;
   }
 
-  .carousel-wrapper,
-  .carousel,
-  .card {
-    outline: 1px solid red;
+  .arrow:hover {
+    transition: 0.3s;
+    color: var(--color-primary);
+  }
+
+  /* Desktop */
+  @media (min-width: 768px) {
+    .card {
+      flex: 0 0 30%;
+    }
+
+    .background {
+      background-image: url(images/anmeld.webp);
+      background-size: cover;
+      width: 100%s;
+      height: 55vh;
+      position: relative;
+      z-index: 0;
+    }
   }
 </style>
 
 <script>
-  const carousel = document.getElementById("carousel");
-  const leftBtn = document.querySelector(".arrow.left");
-  const rightBtn = document.querySelector(".arrow.right");
+  document.addEventListener("DOMContentLoaded", () => {
+    const wrapper = document.getElementById("anmeld-wrapper"); //henviser kun til variablen wrapper, som er containeren, herfra finder den kun de elementer inde i den wrapper
+    const carousel = wrapper.querySelector(".carousel");
+    const leftBtn = wrapper.querySelector(".arrow.left");
+    const rightBtn = wrapper.querySelector(".arrow.right");
 
-  // Brug 2rem = 32px som dit gap
-  const card = carousel.querySelector(".card");
-  const cardWidth = card.offsetWidth + 32;
+    leftBtn.addEventListener("click", () => {
+      carousel.scrollBy({ left: -carousel.clientWidth, behavior: "smooth" });
+    });
 
-  leftBtn.addEventListener("click", () => {
-    carousel.scrollBy({ left: -cardWidth, behavior: "smooth" });
-  });
-
-  rightBtn.addEventListener("click", () => {
-    carousel.scrollBy({ left: cardWidth, behavior: "smooth" });
+    rightBtn.addEventListener("click", () => {
+      carousel.scrollBy({ left: carousel.clientWidth, behavior: "smooth" });
+    });
   });
 </script>
