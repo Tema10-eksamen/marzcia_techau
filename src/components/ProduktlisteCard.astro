@@ -1,5 +1,8 @@
 ---
 import "../style/style.css";
+
+// Modtag data som prop
+const { data } = Astro.props;
 ---
 
 <!-- Card-komponenten til et enkelt produkt/kursus -->
@@ -11,18 +14,18 @@ import "../style/style.css";
       <div class="cirkel"></div>
       <!-- Baggrundscirkel -->
 
-      <img class="illustration" src="illustrationer/reiki.svg" alt="Reiki" />
+      <img class="illustration" src={data.image_url} alt={data.title} />
     </div>
 
     <!-- Tekstindhold: nummer og titel -->
     <div class="forløb">
-      <p>01</p>
-      <h2>REIKI</h2>
+      <p>0{data.number}</p>
+      <h2>{data.title}</h2>
     </div>
 
     <!-- Dato for kurset -->
     <div class="dato">
-      <p>15.-16. november 2025</p>
+      <p>{data.date_start} - {data.date_end}</p>
     </div>
   </div>
 
