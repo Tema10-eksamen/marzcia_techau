@@ -6,7 +6,7 @@ const { data } = Astro.props;
 ---
 
 <!-- Card-komponenten til et enkelt produkt/kursus -->
-<div class={`card-produktliste ${data.category === "englehealing" ? "engle" : "reiki"}`}>
+<div class={`card-produktliste ${data.category === "englehealing" ? "engle" : data.category === "workshop" ? "workshop" : "reiki"}`}>
   <!-- Selve kortet med indhold -->
   <div class="card">
     <!-- Rund baggrund med illustration placeret centralt -->
@@ -19,7 +19,7 @@ const { data } = Astro.props;
 
     <!-- Tekstindhold: nummer og titel -->
     <div class="forløb">
-      <p>0{data.number}</p>
+      <p>{data.number}</p>
       <h2>{data.title}</h2>
     </div>
 
@@ -91,6 +91,11 @@ const { data } = Astro.props;
     height: auto;
   }
 
+  .card-produktliste.workshop .illustration {
+    width: 50%;
+    height: auto;
+  }
+
   .cirkel-wrapper {
     position: relative; /* For at kunne placere billedet absolut */
     width: 100px;
@@ -131,6 +136,10 @@ const { data } = Astro.props;
 
     .card-produktliste.engle .illustration {
       width: 80%; /* Større illustration på desktop */
+    }
+
+    .card-produktliste.workshop .illustration {
+      width: 60%; /* Større illustration på desktop */
     }
 
     .dato {
