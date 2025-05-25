@@ -28,11 +28,11 @@
     justify-content: space-between;
     position: fixed;
     padding: 20px;
-    width: 100%; /* pga position fixed*/
+    width: 100%;
     transition: all 0.5s; /* smooth scroll til header*/
     font-family: var(--font-heading);
-    font-size: var(--font-size-h1-desktop);
-    color: aliceblue;
+    font-weight: 500;
+    color: var(--color-primary);
     z-index: 100;
   }
 
@@ -50,6 +50,7 @@
   a {
     text-decoration: none;
     color: inherit;
+    font-weight: 700;
   }
 
   .logo a {
@@ -137,6 +138,7 @@
 </style>
 
 <script>
+  //hjælp fra chatgpt
   const headerEl = document.querySelector(".header");
 
   window.addEventListener("scroll", () => {
