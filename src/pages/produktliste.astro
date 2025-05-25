@@ -1,5 +1,6 @@
 ---
 import MainLayout from "../layouts/MainLayout.astro";
+import Header from "../components/Header.astro";
 import ProduktlisteHero from "../components/ProduktlisteHero.astro";
 import ProduktlisteSection from "../components/ProduktlisteSection.astro";
 
@@ -19,6 +20,7 @@ console.log("data", data);
 ---
 
 <MainLayout>
+  <Header />
   <ProduktlisteHero />
   <!-- Send data som prop til ProduktlisteSection -->
   <ProduktlisteSection produkter={data} />
