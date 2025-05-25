@@ -6,7 +6,7 @@ const { data } = Astro.props;
 ---
 
 <!-- Card-komponenten til et enkelt produkt/kursus -->
-<div class="card-produktliste">
+<div class={`card-produktliste ${data.category === "englehealing" ? "engle" : "reiki"}`}>
   <!-- Selve kortet med indhold -->
   <div class="card">
     <!-- Rund baggrund med illustration placeret centralt -->
@@ -78,8 +78,16 @@ const { data } = Astro.props;
   }
 
   /* --- Illustration og cirkel --- */
-  .card img {
-    width: 20%; /* Billedets bredde i forhold til kortet */
+
+  /* Standard - fx Reiki */
+  .card-produktliste.reiki .illustration {
+    width: 25%;
+    height: auto;
+  }
+
+  /* Englehealing har større illustration */
+  .card-produktliste.engle .illustration {
+    width: 70%;
     height: auto;
   }
 
@@ -116,10 +124,15 @@ const { data } = Astro.props;
       width: 230px;
       height: 280px;
     }
-    .card img {
+
+    .card-produktliste.reiki .illustration {
       width: 30%; /* Større illustration på desktop */
-      height: auto;
     }
+
+    .card-produktliste.engle .illustration {
+      width: 80%; /* Større illustration på desktop */
+    }
+
     .dato {
       margin-top: 1rem; /* Lidt ekstra plads over dato */
     }
