@@ -2,10 +2,24 @@
 import MainLayout from "../layouts/MainLayout.astro";
 import ProduktlisteHero from "../components/ProduktlisteHero.astro";
 import ProduktlisteSection from "../components/ProduktlisteSection.astro";
-import ProktlisteCard from "../components/ProduktlisteCard.astro";
+
+const url = "https://dnpgtyenhpfiuzuowouj.supabase.co/rest/v1/produkter";
+const key = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRucGd0eWVuaHBmaXV6dW93b3VqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDgxNzMwNDMsImV4cCI6MjA2Mzc0OTA0M30.a2urN_GjsBGRyl-xq_xvUG7vmczmdfkbSt7YHwx9_oM";
+
+const options = {
+  headers: {
+    apikey: key,
+  },
+};
+
+const request = await fetch(url, options);
+const data = await request.json();
+
+console.log("data", data);
 ---
 
 <MainLayout>
   <ProduktlisteHero />
-  <ProduktlisteSection />
+  <!-- Send data som prop til ProduktlisteSection -->
+  <ProduktlisteSection produkter={data} />
 </MainLayout>
