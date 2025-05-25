@@ -8,6 +8,7 @@ const { produkter } = Astro.props;
 // Filtrerer produktlisten og returnerer kun produkter i den angivne kategori
 const reikiProdukter = produkter.filter((p) => p.category === "reiki");
 const engleProdukter = produkter.filter((p) => p.category === "englehealing");
+const workshopProdukter = produkter.filter((p) => p.category === "workshop");
 ---
 
 <section class="reiki-section">
@@ -86,10 +87,49 @@ const engleProdukter = produkter.filter((p) => p.category === "englehealing");
   </div>
 </section>
 
+<section class="workshop-section">
+  <!-- Baggrundsbillede med lav opacity -->
+  <img class="bg-image-workshop" src="illustrationer/workshop.svg" alt="workshop" aria-hidden="true" />
+
+  <!-- Informationsblok med titel og tekst -->
+  <div class="info">
+    <h2>HEALING WORKSHOPS</h2>
+    <p>Mine healing workshops er til for at hjælpe dig til at styrke din healingsenergi og forbedre dit samarbejde med den åndelige verden. Der vil være individuelt fokus på, hvad du som rutineret healer gerne vil blive bedre til, og hvis du er helt uden tidligere erfaring for healing, vil du få hjælp til at komme i gang med at heale.</p>
+    <p>Der vil være undervisning i at bruge dine clairvoyante evner i dit healingsarbejde. Teori om traume forløsning og integration mellem sjæl og krop for at give en bedre forståelse af healingsprocesserne i din klient.</p>
+  </div>
+
+  <!-- Underoverskrift for slideren -->
+  <h3>Mine kommende workshops:</h3>
+
+  <!-- Slider container -->
+  <div class="slider">
+    <!-- Knappen til forrige kort -->
+    <button class="prev" aria-label="Forrige">←</button>
+
+    <!-- Wrapper der skjuler overskydende slides -->
+    <div class="card-wrapper">
+      <!-- Track, der bevæges for at vise slides -->
+      <div class="card-track">
+        {
+          workshopProdukter.map((produkt) => (
+            <div class="card-slide" key={produkt.id}>
+              <ProduktlisteCard data={produkt} />
+            </div>
+          ))
+        }
+      </div>
+
+      <!-- Knappen til næste kort -->
+      <button class="next" aria-label="Næste">→</button>
+    </div>
+  </div>
+</section>
+
 <style>
   /* --- Sektionens overordnede styling --- */
   .reiki-section,
-  .engle-section {
+  .engle-section,
+  .workshop-section {
     background-color: var(--color-quaternary);
     padding: 2rem 0 3rem 0;
     border-radius: 5px;
@@ -117,6 +157,18 @@ const engleProdukter = produkter.filter((p) => p.category === "englehealing");
     position: absolute;
     top: 0;
     right: -328%;
+    height: 100%;
+    width: auto; /* alternativt: width: 40%; */
+    opacity: 0.1; /* Lav synlighed */
+    pointer-events: none; /* Forhindrer klik på billedet */
+    object-fit: cover;
+    z-index: 0; /* Læg bag tekst */
+  }
+
+  .bg-image-workshop {
+    position: absolute;
+    top: 0;
+    right: -90%;
     height: 100%;
     width: auto; /* alternativt: width: 40%; */
     opacity: 0.1; /* Lav synlighed */
@@ -206,9 +258,15 @@ const engleProdukter = produkter.filter((p) => p.category === "englehealing");
     /* Flyt baggrundsbilledet lidt væk fra kanten */
     .bg-image {
       right: 8%;
+      padding: 10px;
     }
     .bg-image-engle {
       right: -53.5%;
+      padding: 10px;
+    }
+    .bg-image-workshop {
+      right: 0;
+      padding: 10px;
     }
   }
 </style>
