@@ -3,6 +3,7 @@ import MainLayout from "../layouts/MainLayout.astro";
 import Header from "../components/Header.astro";
 import ProduktlisteHero from "../components/ProduktlisteHero.astro";
 import ProduktlisteSection from "../components/ProduktlisteSection.astro";
+import ProduktListe from "../components/ProduktListe.astro";
 
 const url = "https://dnpgtyenhpfiuzuowouj.supabase.co/rest/v1/produkter";
 const key = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRucGd0eWVuaHBmaXV6dW93b3VqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDgxNzMwNDMsImV4cCI6MjA2Mzc0OTA0M30.a2urN_GjsBGRyl-xq_xvUG7vmczmdfkbSt7YHwx9_oM";
@@ -23,5 +24,5 @@ console.log("data", data);
   <Header />
   <ProduktlisteHero />
   <!-- Send data som prop til ProduktlisteSection -->
-  <ProduktlisteSection produkter={data} />
+  <ProduktListe produkter={data} />
 </MainLayout>
