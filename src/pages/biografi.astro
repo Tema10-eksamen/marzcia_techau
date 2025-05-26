@@ -5,25 +5,24 @@ import Header1 from "../components/Header1.astro";
 
 <MainLayout>
   <Header1 />
-  <section class="hero">
+  <div class="hero">
     <div class="hero_grid">
-      <div class="citat">
-        “Min vigtigste opgave er<br />
-        at kunne støtte andre til<br />
-        at få deres selvtillid og<br />
-        håb tilbage.”
+      <div>
+        <h2 class="citat">“Min vigtigste opgave er at kunne støtte andre til at få deres selvtillid og håb tilbage.”</h2>
       </div>
       <div class="hero_image">
         <img src="images/ommig1.webp" alt="Marzcia smiler" />
       </div>
     </div>
-  </section>
+  </div>
 
-  <section class="sektion1">
-    <h2>OM MIG</h2>
-    <p>Mine evner som clairvoyant kom tydeligt frem som 18-årig, hvor jeg fik forvarsler om dødsfald i drømme, og jeg begyndte at fornemme guider og afdøde meget tydeligt efter jeg fik min reikigrad.</p>
-    <br />
-    <p>Dette gjorde mig endnu mere opsat på at lære at forstå mine evner inden for clairvoyance, og jeg startede derfor på Clairvoyanceskolen hos Gjertrud Berlon i 2000. I dag er mit ønske at bruge mine evner til at hjælpe andre, både dyr og mennesker.</p>
+  <section class="margin grid_1-1">
+    <div>
+      <h2>OM MIG</h2>
+      <p>Mine evner som clairvoyant kom tydeligt frem som 18-årig, hvor jeg fik forvarsler om dødsfald i drømme, og jeg begyndte at fornemme guider og afdøde meget tydeligt efter jeg fik min reikigrad.</p>
+      <br />
+      <p>Dette gjorde mig endnu mere opsat på at lære at forstå mine evner inden for clairvoyance, og jeg startede derfor på Clairvoyanceskolen hos Gjertrud Berlon i 2000. I dag er mit ønske at bruge mine evner til at hjælpe andre, både dyr og mennesker.</p>
+    </div>
   </section>
 
   <section class="timeline_sektion">
@@ -32,7 +31,7 @@ import Header1 from "../components/Header1.astro";
       <img src="images/forside_ommig.webp" alt="marzcia" class="marzcia" />
     </div>
 
-    <div class="timeline_wrapper">
+    <div class="timeline_wrapper margin">
       <div class="timeline">
         <div class="timeline_item">
           <p>1. Reikigrad</p>
@@ -68,16 +67,17 @@ import Header1 from "../components/Header1.astro";
   </section>
 
   <section class="info_sektion">
-    <div class="info_grid">
-      <div class="info_box">
-        <h3>FORSTÅ SENSITIVE</h3>
+    <div class="info_grid margin">
+      <div>
+        <h2>FORSTÅ SENSITIVE</h2>
         <p>
           Det er ligeså vigtigt at lære om, hvordan denne sensitivitet i ens liv kan skabe problemer, fordi man ikke er opmærksomme på, hvor hurtigt man kan opfange andres følelser og stemninger.<br />
           Det ligger mig meget på sinde at videregive redskaber som hjælper andre, både unge og voksne, til at kunne takle sådanne problemstillinger.
         </p>
       </div>
-      <div class="info_box">
-        <h3>OMTALE I PRESSEN</h3>
+
+      <div>
+        <h2>OMTALE I PRESSEN</h2>
         <p>
           Jeg tror på åbenhed og ærlighed som en vej til at afmystificere åndernes verden. Derfor har jeg blandt andet medvirket i forskellige artikler samt tv- og radioprogrammer gennem tiden.<br />
           Her kan du klikke dig videre til et udvalg af udsendelser og artikler, som jeg har deltaget i.
@@ -97,8 +97,8 @@ import Header1 from "../components/Header1.astro";
     <h2>HVIS DU VIL VIDE MERE...</h2>
   </section>
 
-  <section class="bog_wrapper">
-    <div class="bog_sektion">
+  <section class="info_sektion">
+    <div class="bog_sektion margin">
       <img src="images/bog.webp" alt="bog" />
       <div class="info_bog">
         <p class="kursiv">”I min tid har jeg igen og igen set, hvor stor en forskel det kan gøre i det menneskeliv, vi har her og nu, at vi gør plads til sjælen og forbinder os med hjælpen fra den åndelige verden. At vi healer på nuværende, tidligere og slægtsmæssige traumer, får løsnet op og gjort plads. Ligesom når vi rydder op derhjemme og smider det gamle og ubrugelige ud for nænsomt at give plads til det, der skal vokse og have plads fremover.”</p>
@@ -107,28 +107,18 @@ import Header1 from "../components/Header1.astro";
       </div>
     </div>
   </section>
+  <br />
 </MainLayout>
 
 <style>
-  /********* Main **************/
-
-  h2 {
-    color: #563432;
-  }
-  p {
-    color: #563432;
-  }
-
   /***************** Hero sektion ****************/
 
-  body {
-    margin: 0;
-    font-family: "Roboto", sans-serif;
+  .margin {
+    margin: 2rem;
   }
-
   .hero {
-    background-color: #563432;
-    color: #f0ece5;
+    background-color: var(--color-secondary);
+    color: var(--color-primary);
     padding: 1rem 1rem;
     position: relative;
   }
@@ -136,20 +126,20 @@ import Header1 from "../components/Header1.astro";
   .hero_grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 2rem;
-    max-width: 1200px;
-    margin: 0 auto;
-    align-items: start;
+    gap: 10px;
+    align-items: center;
   }
 
   .citat {
-    font-size: 1.5rem;
-    line-height: 1.6;
+    font-size: 1.3rem;
     font-style: italic;
     max-width: 600px;
     margin: 0 auto;
     text-align: left;
     padding-top: 4rem;
+    color: var(--color-primary);
+    align-items: center;
+    font-weight: 400;
   }
 
   .hero_image {
@@ -164,36 +154,9 @@ import Header1 from "../components/Header1.astro";
     border-radius: 0.5rem;
   }
 
-  /* Desktop */
-  @media (min-width: 768px) {
-    .hero_grid {
-      grid-template-columns: 1fr 1fr;
-    }
-
-    .citat {
-      text-align: left;
-      font-size: 2rem;
-      margin: 0;
-    }
-
-    .hero_image img {
-      max-width: 400px;
-      position: relative;
-      top: 40px;
-    }
+  .grid_1-1 {
+    margin-top: 4rem;
   }
-
-  /******************* Om mig sektion ***************/
-
-  main {
-    background-color: #f0ece5;
-  }
-  .sektion1 {
-    text-align: left;
-    line-height: 1.6;
-    padding-top: 2rem;
-  }
-
   /**************** Timeline sektion **********/
 
   .timeline_wrapper {
@@ -276,6 +239,7 @@ import Header1 from "../components/Header1.astro";
 
   @media (min-width: 768px) {
     .timeline_sektion {
+      display: grid;
       grid-template-columns: 1fr 1fr;
     }
   }
@@ -283,38 +247,16 @@ import Header1 from "../components/Header1.astro";
   /********* Info sektion ***********/
 
   .info_sektion {
-    background-color: #c3afa1;
-    padding: 2rem 1rem 3rem;
-    color: #563432;
-    font-family: "Roboto", sans-serif;
+    background-color: var(--color-quaternary);
+    color: var(--color-secondary);
+    padding-top: 3px;
+    padding-bottom: 30px;
   }
 
   .info_grid {
     display: grid;
-    gap: 2rem;
-    max-width: 1000px;
-    margin: 0 auto;
-  }
-
-  /* Desktop */
-
-  @media (min-width: 768px) {
-    .info_grid {
-      grid-template-columns: 1fr 1fr;
-    }
-  }
-
-  .info_box h3 {
-    margin-top: 0;
-    font-size: 1.1rem;
-    font-weight: 700;
-    text-transform: uppercase;
-  }
-
-  .info_box p {
-    font-size: 1rem;
-    line-height: 1.6;
-    margin: 0.5rem 0 0;
+    grid-template-columns: 1fr;
+    gap: 15px;
   }
 
   .button_group {
@@ -326,8 +268,8 @@ import Header1 from "../components/Header1.astro";
   }
 
   .button_group button {
-    background-color: #842f2f;
-    color: #f0ece5;
+    background-color: var(--color-accent);
+    color: var(--color-primary);
     border: none;
     padding: 0.6rem 1.4rem;
     border-radius: 6px;
@@ -337,41 +279,74 @@ import Header1 from "../components/Header1.astro";
   }
 
   .button_group button:hover {
-    background-color: #5e1f1f;
-  }
-
-  /************* Video sektion ***************/
-
-  h2 {
-    color: #563432;
+    background-color: var(--color-hover);
   }
 
   /************* Bog sektion **************/
 
-  .bog_wrapper {
-    background-color: #c3afa1;
-    padding: 2rem 1rem 3rem;
-    color: #563432;
-    font-family: "Roboto", sans-serif;
-  }
-
   .bog_sektion {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2rem;
-    max-width: 1000px;
-    margin: 0 auto;
+    grid-template-columns: 1fr;
+    gap: 10px;
+    justify-content: center;
   }
 
   .kursiv {
     font-style: italic;
-    line-height: 1.6;
   }
 
   /* Desktop */
   @media (min-width: 768px) {
-    .bog_sektion {
+    .hero_grid {
+      display: grid;
       grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+      align-items: center;
+    }
+
+    .citat {
+      text-align: left;
+      font-size: 2.5rem;
+      margin: 0;
+    }
+
+    .hero_image img {
+      max-width: 400px;
+      position: relative;
+      top: 40px;
+    }
+    .hero_image {
+      position: relative;
+      display: flex;
+      top: 40px;
+      left: 20%;
+    }
+
+    .grid_1-1 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-top: 2rem;
+    }
+    .info_grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .bog_sektion {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      align-items: center;
+    }
+    .bog_sektion img {
+      position: relative;
+      top: 0;
+      left: 20%;
     }
   }
 </style>
