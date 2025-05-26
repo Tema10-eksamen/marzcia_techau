@@ -25,42 +25,49 @@ import Header1 from "../components/Header1.astro";
     </div>
   </section>
 
-  <section class="timeline_sektion">
+  <section class="grid2_1-1">
     <div class="image_container">
       <img src="images/tree.webp" alt="træstamme" class="tree" />
       <img src="images/forside_ommig.webp" alt="marzcia" class="marzcia" />
     </div>
 
-    <div class="timeline_wrapper margin">
-      <div class="timeline">
-        <div class="timeline_item">
-          <p>1. Reikigrad</p>
-        </div>
-        <div class="timeline_item">
-          <p>2000 Clairvoyanceskolen hos Gjertrud Berlon</p>
-        </div>
-        <div class="timeline_item">
-          <p>2004 Kandidat i biologi</p>
-        </div>
-        <div class="timeline_item">
-          <p>2006 fuldtid beskæftigelse indenfor healing, clairvoyance og undervisning</p>
-        </div>
-        <div class="timeline_item">
-          <p>2007 arbejde som medie i den danske spiritistkirke i København, Danielkirken</p>
-        </div>
-        <div class="timeline_item">
-          <p>2010 undersøgelse af healing af kræftpatienter på hospitaler i London med The Doctor Healer Network</p>
-        </div>
-        <div class="timeline_item">
-          <p>2012 TV-udsendelse: <br />Ånderne vender tilbage</p>
-        </div>
-        <div class="timeline_item">
-          <p>
-            2016 andre TV-udsendelser:<br />
-            • “Det mystiske Danmark”<br />
-            • “Når ånderne taler”<br />
-            • “Når healing er den sidste udvej”
-          </p>
+    <div class="timeline">
+      <div class="timeline-event">
+        <div class="dot"></div>
+        <div class="event-text">1. Reikigrad</div>
+      </div>
+      <div class="timeline-event">
+        <div class="dot"></div>
+        <div class="event-text">2000 Clairvoyanceskolen hos Gjertrud Berlon</div>
+      </div>
+      <div class="timeline-event">
+        <div class="dot"></div>
+        <div class="event-text">2004 Kandidat i biologi</div>
+      </div>
+      <div class="timeline-event">
+        <div class="dot"></div>
+        <div class="event-text">2006 fuldtid beskæftigelse indenfor healing, clairvoyance og undervisning</div>
+      </div>
+      <div class="timeline-event">
+        <div class="dot"></div>
+        <div class="event-text">2007 arbejde som medie i den danske spiritistkirke i København, Danielkirken</div>
+      </div>
+      <div class="timeline-event">
+        <div class="dot"></div>
+        <div class="event-text">2010 undersøgelse af healing af kræftpatienter på hospitaler i London med The Doctor Healer Network</div>
+      </div>
+      <div class="timeline-event">
+        <div class="dot"></div>
+        <div class="event-text">2012 TV-udsendelse: Ånderne vender tilbage</div>
+      </div>
+
+      <div class="timeline-event">
+        <div class="dot"></div>
+        <div class="event-text">
+          2016 andre TV-udsendelser: <br />
+          <em>“Det mystiske Danmark”</em><br />
+          <em>“Når ånderne taler”</em><br />
+          <em>“Når healing er den sidste udvej”</em>
         </div>
       </div>
     </div>
@@ -108,245 +115,251 @@ import Header1 from "../components/Header1.astro";
     </div>
   </section>
   <br />
-</MainLayout>
 
-<style>
-  /***************** Hero sektion ****************/
+  <style>
+    /***************** Hero sektion ****************/
 
-  .margin {
-    margin: 2rem;
-  }
-  .hero {
-    background-color: var(--color-secondary);
-    color: var(--color-primary);
-    padding: 1rem 1rem;
-    position: relative;
-  }
-
-  .hero_grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 10px;
-    align-items: center;
-  }
-
-  .citat {
-    font-size: 1.3rem;
-    font-style: italic;
-    max-width: 600px;
-    margin: 0 auto;
-    text-align: left;
-    padding-top: 4rem;
-    color: var(--color-primary);
-    align-items: center;
-    font-weight: 400;
-  }
-
-  .hero_image {
-    position: relative;
-    display: flex;
-    top: 40px;
-  }
-
-  .hero_image img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 0.5rem;
-  }
-
-  .grid_1-1 {
-    margin-top: 4rem;
-  }
-  /**************** Timeline sektion **********/
-
-  .timeline_wrapper {
-    display: flex;
-    justify-content: flex-end;
-    padding: 4rem 1rem;
-  }
-
-  .timeline {
-    position: relative;
-    border-left: 2px solid #842f2f;
-    padding-left: 2rem;
-    max-width: 600px;
-    width: 100%;
-    margin: 0 auto;
-  }
-
-  .timeline_item {
-    position: relative;
-    margin-bottom: 2rem;
-    padding-left: 1rem;
-  }
-
-  .timeline_item::before {
-    content: "";
-    position: absolute;
-    left: -1.2rem;
-    top: 0.25rem;
-    width: 1rem;
-    height: 1rem;
-    background-color: #842f2f;
-    border-radius: 50%;
-    transform: translateX(-50%);
-  }
-
-  .timeline_item p {
-    margin: 0;
-    font-size: 1rem;
-    line-height: 1.5;
-  }
-
-  /* Desktop */
-  @media (min-width: 768px) {
-    .timeline_wrapper {
-      justify-content: flex-end;
-      padding-right: 4rem;
+    .margin {
+      margin: 2rem;
     }
-  }
-
-  /*** Billede sektion ****/
-
-  .image_container {
-    position: relative;
-    width: 300px;
-    height: auto;
-  }
-
-  .image_container img.tree {
-    width: 100%;
-    display: block;
-  }
-
-  .image_container img.marzcia {
-    position: absolute;
-    top: 50px;
-    left: 50px;
-    width: 200px;
-  }
-
-  .timeline_sektion {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2rem;
-    align-items: center;
-    padding: 4rem 1rem;
-    max-width: 1200px;
-  }
-
-  /* Desktop */
-
-  @media (min-width: 768px) {
-    .timeline_sektion {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
+    .hero {
+      background-color: var(--color-secondary);
+      color: var(--color-primary);
+      padding: 1rem 1rem;
+      position: relative;
     }
-  }
 
-  /********* Info sektion ***********/
-
-  .info_sektion {
-    background-color: var(--color-quaternary);
-    color: var(--color-secondary);
-    padding-top: 3px;
-    padding-bottom: 30px;
-  }
-
-  .info_grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 15px;
-  }
-
-  .button_group {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 1rem;
-    margin-top: 2rem;
-  }
-
-  .button_group button {
-    background-color: var(--color-accent);
-    color: var(--color-primary);
-    border: none;
-    padding: 0.6rem 1.4rem;
-    border-radius: 6px;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: 0.3s ease;
-  }
-
-  .button_group button:hover {
-    background-color: var(--color-hover);
-  }
-
-  /************* Bog sektion **************/
-
-  .bog_sektion {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 10px;
-    justify-content: center;
-  }
-
-  .kursiv {
-    font-style: italic;
-  }
-
-  /* Desktop */
-  @media (min-width: 768px) {
     .hero_grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 2rem;
-      max-width: 1200px;
-      margin: 0 auto;
+      gap: 10px;
       align-items: center;
     }
 
     .citat {
+      font-size: 1.3rem;
+      font-style: italic;
+      max-width: 600px;
+      margin: 0 auto;
       text-align: left;
-      font-size: 2.5rem;
-      margin: 0;
+      padding-top: 4rem;
+      color: var(--color-primary);
+      align-items: center;
+      font-weight: 400;
     }
 
-    .hero_image img {
-      max-width: 400px;
-      position: relative;
-      top: 40px;
-    }
     .hero_image {
       position: relative;
       display: flex;
       top: 40px;
-      left: 20%;
+    }
+
+    .hero_image img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 0.5rem;
     }
 
     .grid_1-1 {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 10px;
-      margin-top: 2rem;
+      margin-top: 4rem;
     }
+    /**************** Timeline sektion **********/
+    .timeline {
+      display: grid;
+      row-gap: 3rem; /* Ens afstand mellem prikkerne */
+      position: relative;
+      padding-left: 0.1rem;
+      margin-left: 2.1rem;
+      max-width: 40ch;
+      margin-bottom: 2rem;
+    }
+
+    .timeline::before {
+      content: "";
+      position: absolute;
+      left: 10px;
+      top: 5px;
+      bottom: 0;
+      width: 2px;
+      background-color: var(--color-secondary);
+    }
+
+    .timeline-event {
+      display: grid;
+      grid-template-columns: 20px 1fr;
+      align-items: start;
+      column-gap: 1rem;
+    }
+
+    .dot {
+      width: 20px;
+      height: 20px;
+      background-color: var(--color-secondary);
+      border-radius: 50%;
+    }
+
+    .event-text {
+      color: var(--color-secondary);
+      font-family: var(--font-text);
+    }
+    /* Desktop */
+    @media (min-width: 768px) {
+      .grid2_1-1 {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        align-items: center; /* Vertikal centrering */
+        margin-top: 4rem;
+      }
+      .timeline {
+        row-gap: 4rem; /* Ens afstand mellem prikkerne */
+        margin-left: 8.3rem;
+      }
+    }
+
+    /*** Billede sektion ****/
+
+    .image_container {
+      position: relative;
+      width: 330px; /* fx mindre end 330px */
+      max-height: 330px; /* Tilføj evt. for lavere højde */
+      overflow: hidden; /* Skjul det, der går udenfor */
+      margin: 0 auto; /* Centrerer horisontalt */
+      margin-bottom: 2rem;
+      border-radius: 5px;
+    }
+
+    .image_container img.tree {
+      width: 100%;
+      display: block;
+    }
+
+    .image_container img.marzcia {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 220px; /* eller mindre end 240px */
+      border-radius: 5px;
+    }
+
+    /* Desktop */
+
+    @media (min-width: 768px) {
+      .image_container {
+        width: 460px; /* fx mindre end 330px */
+        max-height: 560px; /* Tilføj evt. for lavere højde */
+        margin-left: 11rem; /* eller samme som dit generelle content-margin */
+      }
+      .image_container img.marzcia {
+        width: 350px; /
+      }
+    }
+
+    /********* Info sektion ***********/
+
+    .info_sektion {
+      background-color: var(--color-quaternary);
+      color: var(--color-secondary);
+      padding-top: 3px;
+      padding-bottom: 30px;
+    }
+
     .info_grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 2rem;
-      align-items: center;
+      grid-template-columns: 1fr;
+      gap: 15px;
     }
+
+    .button_group {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    .button_group button {
+      background-color: var(--color-accent);
+      color: var(--color-primary);
+      border: none;
+      padding: 0.6rem 1.4rem;
+      border-radius: 6px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: 0.3s ease;
+    }
+
+    .button_group button:hover {
+      background-color: var(--color-hover);
+    }
+
+    /************* Bog sektion **************/
 
     .bog_sektion {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 2rem;
-      align-items: center;
+      grid-template-columns: 1fr;
+      gap: 10px;
+      justify-content: center;
     }
-    .bog_sektion img {
-      position: relative;
-      top: 0;
-      left: 20%;
+
+    .kursiv {
+      font-style: italic;
     }
-  }
-</style>
+
+    /* Desktop */
+    @media (min-width: 768px) {
+      .hero_grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+        max-width: 1200px;
+        margin: 0 auto;
+        align-items: center;
+      }
+
+      .citat {
+        text-align: left;
+        font-size: 2.5rem;
+        margin: 0;
+      }
+
+      .hero_image img {
+        max-width: 400px;
+        position: relative;
+        top: 40px;
+      }
+      .hero_image {
+        position: relative;
+        display: flex;
+        top: 40px;
+        left: 20%;
+      }
+
+      .grid_1-1 {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+        margin-top: 2rem;
+        max-width: 153ch;
+      }
+      .info_grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+        align-items: center;
+      }
+
+      .bog_sektion {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+        align-items: center;
+      }
+      .bog_sektion img {
+        position: relative;
+        top: 0;
+        left: 20%;
+      }
+    }
+  </style>
+</MainLayout>
