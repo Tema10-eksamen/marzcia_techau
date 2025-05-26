@@ -1,0 +1,251 @@
+---
+import ProduktListCard from "./ProduktListCard.astro";
+//Modtag produkterne som prop (array af produkt-objekter)
+const { produkter, data } = Astro.props;
+
+// Filtrerer produktlisten og returnerer kun produkter i den angivne kategori
+const reikiProdukter = produkter.filter((p) => p.category === "reiki");
+const engleProdukter = produkter.filter((p) => p.category === "englehealing");
+const workshopProdukter = produkter.filter((p) => p.category === "workshop");
+---
+
+<section>
+  <img class="section1" src="illustrationer/reiki.svg" alt="reiki" />
+  <div>
+    <div class="grid_1-1">
+      <div>
+        <h2>REIKI</h2>
+        <p>Idéen bag Reiki-healing er, at alt i universet er energi, og at healeren kan fungere som en slags kanal for en universel livsenergi, som healeren overfører til sin klient. Jeg ser Reiki som en universel kærlighedsenergi af hvidt lys, der er til stede i hele verden og hele universet. <br /><br />Alle kan lære at heale med Reiki og der er ikke nogen religion forbundet til det.</p>
+        <p>Mine kommende Reiki-uddannelser:</p>
+      </div>
+      <br />
+    </div>
+
+    <div class="carousel-wrapper">
+      <button class="arrow left">&#10094;</button>
+      <div class="carousel">
+        {
+          reikiProdukter.map((produkt) => (
+            <div class="card" key={produkt.id}>
+              <ProduktListCard data={produkt} />
+            </div>
+          ))
+        }
+      </div>
+      <button class="arrow right">&#10095;</button>
+    </div>
+  </div>
+</section>
+<section>
+  <img class="section2" src="illustrationer/engle.svg" alt="engle" />
+  <div>
+    <div class="grid_1-1">
+      <div>
+        <h2>ENGLEHEALING</h2>
+        <p>På kurser i englehealing lærer du de engle at kende, som hjælper dig i dit liv, og du undervises i at heale med engleenergi.  Dette er nogle intense todageskurser i at kontakte engledimensionen, og kunne bruge den kontakt både til dig selv og til at heale andre. Du behøver ikke at have healet før for at deltage, men du skal være vant til guidede meditationer.</p>
+        <p>Mine kommende Reiki-uddannelser:</p>
+      </div>
+    </div>
+    <div class="carousel-wrapper">
+      <button class="arrow left">&#10094;</button>
+      <div class="carousel">
+        {
+          engleProdukter.map((produkt) => (
+            <div class="card" key={produkt.id}>
+              <ProduktListCard data={produkt} />
+            </div>
+          ))
+        }
+      </div>
+      <button class="arrow right">&#10095;</button>
+    </div>
+  </div>
+</section>
+
+<section>
+  <img class="section3" src="illustrationer/workshop.svg" alt="engle" />
+  <div>
+    <div>
+      <div class="grid_1-1">
+        <div>
+          <h2>HEALINGSWORKSHOP</h2>
+          <p>Mine healingsworkshops er til for at hjælpe dig til at styrke din healingsenergi og forbedre dit samarbejde med den åndelige verden. Der vil være individuelt fokus på, hvad du som rutineret healer gerne vil blive bedre til, og hvis du er helt uden tidligere erfaring for healing, vil du få hjælp til at komme i gang med at heale. Der vil være undervisning i at bruge dine clairvoyante evner i dit healingsarbejde. Teori om traume forløsning og integration mellem sjæl og krop for at give en bedre forståelse af healingsprocesserne i din klient.</p>
+          <p>Mine kommende Reiki-uddannelser:</p>
+        </div>
+      </div>
+    </div>
+    <div class="carousel-wrapper">
+      <button class="arrow left">&#10094;</button>
+      <div class="carousel">
+        {
+          workshopProdukter.map((produkt) => (
+            <div class="card" key={produkt.id}>
+              <ProduktListCard data={produkt} />
+            </div>
+          ))
+        }
+      </div>
+      <button class="arrow right">&#10095;</button>
+    </div>
+  </div>
+</section>
+
+<style>
+  section {
+    margin-top: 3.5rem;
+    background-color: var(--color-quaternary);
+    padding: 10px;
+    position: relative;
+    border-radius: 10px;
+    padding: 30px;
+    margin-bottom: 2rem;
+  }
+
+  .section1 {
+    width: 55%;
+    height: auto;
+    opacity: 0.1;
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  .section2 {
+    width: 100%;
+    height: auto;
+    opacity: 0.2;
+    position: absolute;
+    left: 50%;
+    top: 10%;
+  }
+  .section3 {
+    width: 60%;
+    height: auto;
+    opacity: 0.2;
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  .carousel {
+    padding: 20px;
+  }
+  a {
+    text-decoration: none;
+  }
+  .carousel-wrapper {
+    position: relative;
+  }
+
+  .carousel {
+    display: flex;
+    gap: 1rem;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding: 1rem;
+    scroll-behavior: smooth;
+  }
+
+  .card {
+    flex: 0 0 30%;
+    flex-shrink: 0;
+    scroll-snap-align: start;
+    background: var(--color-quaternary);
+    border-radius: 10px;
+    padding: 1rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .arrow {
+    position: absolute;
+    top: 45%;
+    transform: translateY(-50%);
+    background-color: transparent;
+    color: var(--color-secondary);
+    border: none;
+    font-size: 2rem;
+    padding: 0.5rem;
+    z-index: 10;
+    cursor: pointer;
+  }
+
+  .arrow.left {
+    left: 0.5rem;
+  }
+
+  .arrow.right {
+    right: 0.5rem;
+  }
+  .arrow:hover {
+    transition: 0.3s;
+    color: var(--color-hover);
+  }
+
+  /* Desktop */
+  @media (min-width: 768px) {
+    .carousel {
+      overflow-x: visible;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+    .arrow {
+      display: none;
+    }
+    .card {
+      flex: 0 0 5%;
+    }
+    .grid_1-1 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+    section {
+      margin-top: 3.5rem;
+      margin: 2rem;
+      background-color: var(--color-quaternary);
+      padding: 10px;
+      position: relative;
+      border-radius: 10px;
+      padding: 30px;
+    }
+    .section1 {
+      width: 15%;
+      height: auto;
+      opacity: 0.1;
+      position: absolute;
+      right: 20%;
+      top: 0;
+    }
+    .section2 {
+      width: 50%;
+      height: auto;
+      opacity: 0.2;
+      position: absolute;
+      left: 50%;
+      top: 10%;
+    }
+    .section3 {
+      width: 35%;
+      height: auto;
+      opacity: 0.2;
+      position: absolute;
+      right: 5%;
+      top: 0;
+    }
+  }
+</style>
+<script>
+  document.querySelectorAll(".carousel-wrapper").forEach((wrapper) => {
+    const carousel = wrapper.querySelector(".carousel");
+    const leftBtn = wrapper.querySelector(".arrow.left");
+    const rightBtn = wrapper.querySelector(".arrow.right");
+
+    leftBtn.addEventListener("click", () => {
+      carousel.scrollBy({ left: -carousel.clientWidth, behavior: "smooth" });
+    });
+
+    rightBtn.addEventListener("click", () => {
+      carousel.scrollBy({ left: carousel.clientWidth, behavior: "smooth" });
+    });
+  });
+</script>

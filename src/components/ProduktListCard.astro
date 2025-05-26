@@ -1,0 +1,198 @@
+---
+const { data } = Astro.props;
+---
+
+<!-- Card-komponenten til et enkelt produkt/kursus -->
+<div class={`card-produktliste ${data.category === "englehealing" ? "engle" : data.category === "workshop" ? "workshop" : "reiki"}`}>
+  <!-- Selve kortet med indhold -->
+  <div class="card">
+    <!-- Rund baggrund med illustration placeret centralt -->
+    <div class="cirkel-wrapper">
+      <div class="cirkel"></div>
+      <!-- Baggrundscirkel -->
+
+      <img class="illustration" src={data.image_url} alt={data.title} />
+    </div>
+
+    <!-- Tekstindhold: nummer og titel -->
+    <div class="forlob">
+      <p>{data.number}</p>
+      <h2>{data.title}</h2>
+    </div>
+
+    <!-- Dato for kurset -->
+    <div class="dato">
+      <p>{data.date_start} - {data.date_end}</p>
+    </div>
+  </div>
+
+  {
+    data.sold_out && (
+      <div class="overlay">
+        <span>UDSOLGT</span>
+      </div>
+    )
+  }
+
+  {
+    data.online && (
+      <div class="online-tag">
+        <span>ONLINE</span>
+      </div>
+    )
+  }
+  <button class="overlap-knap">Book</button>
+</div>
+
+<style>
+  /* --- Kortets overordnede container --- */
+  .card-produktliste {
+    position: relative; /* Så vi kan positionere knappen absolut ift. kortet */
+    width: 200px; /* Fast bredde */
+    padding-bottom: 1.5rem; /* Rum under kortet til knappen */
+    background-color: var(--color-primary);
+    border-radius: 5px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Blid skygge for dybde */
+  }
+
+  .card-produktliste .online-tag {
+    position: absolute;
+    top: 0.3rem;
+    left: 0.3rem;
+    background-color: var(--color-secondary); /* Let grå overlay */
+    color: var(--color-primary);
+    font-size: 0.65rem;
+    font-weight: 600;
+    padding: 0.1rem 0.3rem;
+    border-radius: 3px;
+    z-index: 5;
+    user-select: none;
+    pointer-events: none;
+    letter-spacing: 0.05em;
+    font-family: var(--font-heading);
+  }
+
+  .card-produktliste .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--color-primary);
+    opacity: 0.8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px; /* Samme som kortets border-radius */
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--color-secondary); /* Mørk rød til udsolgt tekst */
+    pointer-events: none; /* Så det ikke blokkerer klik */
+    z-index: 10;
+    padding-top: 4.76rem;
+    font-family: var(--font-heading);
+  }
+
+  /* --- Selve kortets indhold --- */
+  .card {
+    width: 100%;
+    padding: 10px;
+    background-color: var(--color-primary);
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column; /* Elementerne stables lodret */
+    align-items: center; /* Centrerer indhold horisontalt */
+    justify-content: space-between; /* Skaber afstand mellem elementer lodret */
+  }
+  .overlap-knap {
+    width: 100px;
+    position: relative;
+    bottom: -2rem; /* Halvt udenfor kortets bund */
+    background-color: var(--color-accent);
+    border: none;
+    color: var(--color-primary);
+    cursor: pointer;
+    border-radius: 6px;
+    padding: 0.6rem 1.4rem;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+    z-index: 100;
+  }
+  /* Hover-effekt for knappen */
+  .overlap-knap:hover {
+    background-color: #5e1f1f;
+  }
+  /* --- Illustration og cirkel --- */
+
+  /* Standard - fx Reiki */
+  .card-produktliste.reiki .illustration {
+    width: 25%;
+    height: auto;
+  }
+
+  /* Englehealing har større illustration */
+  .card-produktliste.engle .illustration {
+    width: 70%;
+    height: auto;
+  }
+
+  .card-produktliste.workshop .illustration {
+    width: 50%;
+    height: auto;
+  }
+
+  .cirkel-wrapper {
+    position: relative; /* For at kunne placere billedet absolut */
+    width: 100px;
+    height: 100px;
+  }
+
+  .cirkel {
+    width: 100%;
+    height: 100%;
+    background-color: var(--color-quaternary);
+    border-radius: 50%; /* Rund cirkel */
+  }
+
+  .illustration {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Centrerer billedet i cirklen */
+  }
+
+  /* --- Tekstindhold under illustrationen --- */
+  .forlob {
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+  }
+
+  /* --- Responsivt design til desktop --- */
+  @media (min-width: 768px) {
+    .card-produktliste {
+      width: 265px;
+      height: 290px;
+    }
+
+    .card-produktliste.reiki .illustration {
+      width: 30%; /* Større illustration på desktop */
+    }
+
+    .card-produktliste.engle .illustration {
+      width: 80%; /* Større illustration på desktop */
+    }
+
+    .card-produktliste.workshop .illustration {
+      width: 60%; /* Større illustration på desktop */
+    }
+
+    .dato {
+      margin-top: 1rem; /* Lidt ekstra plads over dato */
+    }
+
+    .card-produktliste .overlay {
+      padding-top: 2.8rem;
+    }
+  }
+</style>
