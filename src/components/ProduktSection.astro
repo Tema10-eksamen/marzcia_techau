@@ -1,0 +1,63 @@
+---
+import "../style/style.css";
+---
+
+<section class="info">
+  <h1>Titel</h1>
+  <p>Beskrivelse</p>
+</section>
+<section class="kursus">
+  <div class="card-produkt">
+    <div class="card">
+      <h2>Titel</h2>
+      <img src="/public/illustrationer/reiki.svg" alt="reiki" />
+    </div>
+    <div class="box-2">
+      <p>Længde på kursus og datoer</p>
+      <p>Tidspunkt</p>
+      <p>sted</p>
+      <button>Book</button>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* --- Kortets overordnede container --- */
+  .card-produkt {
+    width: 200px; /* Fast bredde */
+    padding-bottom: 1.5rem; /* Rum under kortet til knappen */
+    background-color: var(--color-primary);
+    border-radius: 5px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Blid skygge for dybde */
+  }
+
+  .kursus {
+    background-color: var(--color-quaternary);
+  }
+
+  .card {
+    width: 100%;
+    padding: 10px;
+    background-color: var(--color-quaternary);
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column; /* Elementerne stables lodret */
+    align-items: center; /* Centrerer indhold horisontalt */
+    justify-content: space-between; /* Skaber afstand mellem elementer lodret */
+  }
+
+  button {
+    background-color: var(--color-accent);
+    border: none;
+    color: var(--color-primary);
+    cursor: pointer;
+    border-radius: 6px;
+    padding: 0.6rem 1.4rem;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+  }
+
+  button:hover {
+    background-color: #5e1f1f;
+  }
+</style>
