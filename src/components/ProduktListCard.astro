@@ -41,17 +41,15 @@ const { data } = Astro.props;
       </div>
     )
   }
-  <button class="overlap-knap">Book</button>
 </div>
 
 <style>
   /* --- Kortets overordnede container --- */
   .card-produktliste {
-    position: relative; /* Så vi kan positionere knappen absolut ift. kortet */
-    width: 200px; /* Fast bredde */
-    padding-bottom: 1.5rem; /* Rum under kortet til knappen */
+    position: relative;
+    width: 200px;
     background-color: var(--color-primary);
-    border-radius: 5px;
+    border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Blid skygge for dybde */
   }
 
@@ -59,12 +57,12 @@ const { data } = Astro.props;
     position: absolute;
     top: 0.3rem;
     left: 0.3rem;
-    background-color: var(--color-secondary); /* Let grå overlay */
+    background-color: var(--color-secondary);
     color: var(--color-primary);
     font-size: 0.65rem;
     font-weight: 600;
     padding: 0.1rem 0.3rem;
-    border-radius: 3px;
+    border-radius: 5px;
     z-index: 5;
     user-select: none;
     pointer-events: none;
@@ -83,7 +81,7 @@ const { data } = Astro.props;
     display: flex;
     justify-content: center;
     align-items: center;
-    border-radius: 5px; /* Samme som kortets border-radius */
+    border-radius: 10px; /* Samme som kortets border-radius */
     font-size: 1.5rem;
     font-weight: bold;
     color: var(--color-secondary); /* Mørk rød til udsolgt tekst */
@@ -104,24 +102,7 @@ const { data } = Astro.props;
     align-items: center; /* Centrerer indhold horisontalt */
     justify-content: space-between; /* Skaber afstand mellem elementer lodret */
   }
-  .overlap-knap {
-    width: 100px;
-    position: relative;
-    bottom: -2rem; /* Halvt udenfor kortets bund */
-    background-color: var(--color-accent);
-    border: none;
-    color: var(--color-primary);
-    cursor: pointer;
-    border-radius: 6px;
-    padding: 0.6rem 1.4rem;
-    font-size: 1rem;
-    transition: background-color 0.3s ease;
-    z-index: 100;
-  }
-  /* Hover-effekt for knappen */
-  .overlap-knap:hover {
-    background-color: #5e1f1f;
-  }
+
   /* --- Illustration og cirkel --- */
 
   /* Standard - fx Reiki */
@@ -150,7 +131,7 @@ const { data } = Astro.props;
   .cirkel {
     width: 100%;
     height: 100%;
-    background-color: var(--color-quaternary);
+    background-color: var(--color-secondary);
     border-radius: 50%; /* Rund cirkel */
   }
 

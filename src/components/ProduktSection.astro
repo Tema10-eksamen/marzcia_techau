@@ -1,51 +1,23 @@
 ---
-import "../style/style.css";
+const { data } = Astro.props;
 ---
 
 <section class="info">
   <h1>Titel</h1>
-  <p>Beskrivelse</p>
+  <div class="grid-1-1">
+    <p>Beskrivelse</p>
+  </div>
 </section>
-<section class="kursus">
-  <div class="card-produkt">
-    <div class="card">
-      <h2>Titel</h2>
-      <img src="/public/illustrationer/reiki.svg" alt="reiki" />
-    </div>
-    <div class="box-2">
-      <p>Længde på kursus og datoer</p>
-      <p>Tidspunkt</p>
-      <p>sted</p>
-      <button>Book</button>
+<section>
+  <div class="grid_1-1">
+    <div><img src={data.image_url} alt={data.title} /></div>
+    <div>
+      <h2>Uddannelsens rammer:</h2>
     </div>
   </div>
 </section>
 
 <style>
-  /* --- Kortets overordnede container --- */
-  .card-produkt {
-    width: 200px; /* Fast bredde */
-    padding-bottom: 1.5rem; /* Rum under kortet til knappen */
-    background-color: var(--color-primary);
-    border-radius: 5px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Blid skygge for dybde */
-  }
-
-  .kursus {
-    background-color: var(--color-quaternary);
-  }
-
-  .card {
-    width: 100%;
-    padding: 10px;
-    background-color: var(--color-quaternary);
-    border-radius: 5px;
-    display: flex;
-    flex-direction: column; /* Elementerne stables lodret */
-    align-items: center; /* Centrerer indhold horisontalt */
-    justify-content: space-between; /* Skaber afstand mellem elementer lodret */
-  }
-
   button {
     background-color: var(--color-accent);
     border: none;

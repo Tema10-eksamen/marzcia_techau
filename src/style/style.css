@@ -27,9 +27,11 @@ h2 {
   font-family: var(--font-heading);
   font-weight: 600; /* Semibold */
   color: var(--color-secondary);
+  margin-top: 0.5rem;
 }
 p {
   font-family: var(--font-text);
   font-weight: 400; /* Regular */
   color: var(--color-secondary);
+  margin-top: 0.5rem;
 }
