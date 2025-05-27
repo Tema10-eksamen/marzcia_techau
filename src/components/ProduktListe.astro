@@ -23,15 +23,17 @@ const workshopProdukter = produkter.filter((p) => p.category === "workshop");
 
     <div class="carousel-wrapper">
       <button class="arrow left">&#10094;</button>
-      <div class="carousel">
-        {
-          reikiProdukter.map((produkt) => (
-            <div class="card" key={produkt.id}>
-              <ProduktListCard data={produkt} />
-            </div>
-          ))
-        }
-      </div>
+      <a href="produkt">
+        <div class="carousel">
+          {
+            reikiProdukter.map((produkt) => (
+              <div class="card" key={produkt.id}>
+                <ProduktListCard data={produkt} />
+              </div>
+            ))
+          }
+        </div>
+      </a>
       <button class="arrow right">&#10095;</button>
     </div>
   </div>
@@ -43,48 +45,52 @@ const workshopProdukter = produkter.filter((p) => p.category === "workshop");
       <div>
         <h2>ENGLEHEALING</h2>
         <p>På kurser i englehealing lærer du de engle at kende, som hjælper dig i dit liv, og du undervises i at heale med engleenergi.  Dette er nogle intense todageskurser i at kontakte engledimensionen, og kunne bruge den kontakt både til dig selv og til at heale andre. Du behøver ikke at have healet før for at deltage, men du skal være vant til guidede meditationer.</p>
-        <p>Mine kommende Reiki-uddannelser:</p>
+        <p>Mine kommende Englehealings-uddannelser:</p>
       </div>
     </div>
     <div class="carousel-wrapper">
       <button class="arrow left">&#10094;</button>
-      <div class="carousel">
-        {
-          engleProdukter.map((produkt) => (
-            <div class="card" key={produkt.id}>
-              <ProduktListCard data={produkt} />
-            </div>
-          ))
-        }
-      </div>
+      <a href="produkt">
+        <div class="carousel">
+          {
+            engleProdukter.map((produkt) => (
+              <div class="card" key={produkt.id}>
+                <ProduktListCard data={produkt} />
+              </div>
+            ))
+          }
+        </div>
+      </a>
       <button class="arrow right">&#10095;</button>
     </div>
   </div>
 </section>
 
 <section>
-  <img class="section3" src="illustrationer/workshop.svg" alt="engle" />
+  <img class="section3" src="illustrationer/workshop.svg" alt="workshop" />
   <div>
     <div>
       <div class="grid_1-1">
         <div>
           <h2>HEALINGSWORKSHOP</h2>
           <p>Mine healingsworkshops er til for at hjælpe dig til at styrke din healingsenergi og forbedre dit samarbejde med den åndelige verden. Der vil være individuelt fokus på, hvad du som rutineret healer gerne vil blive bedre til, og hvis du er helt uden tidligere erfaring for healing, vil du få hjælp til at komme i gang med at heale. Der vil være undervisning i at bruge dine clairvoyante evner i dit healingsarbejde. Teori om traume forløsning og integration mellem sjæl og krop for at give en bedre forståelse af healingsprocesserne i din klient.</p>
-          <p>Mine kommende Reiki-uddannelser:</p>
+          <p>Mine kommende Healingsworkshops:</p>
         </div>
       </div>
     </div>
     <div class="carousel-wrapper">
       <button class="arrow left">&#10094;</button>
-      <div class="carousel">
-        {
-          workshopProdukter.map((produkt) => (
-            <div class="card" key={produkt.id}>
-              <ProduktListCard data={produkt} />
-            </div>
-          ))
-        }
-      </div>
+      <a href="produkt">
+        <div class="carousel">
+          {
+            workshopProdukter.map((produkt) => (
+              <div class="card" key={produkt.id}>
+                <ProduktListCard data={produkt} />
+              </div>
+            ))
+          }
+        </div>
+      </a>
       <button class="arrow right">&#10095;</button>
     </div>
   </div>
@@ -94,7 +100,7 @@ const workshopProdukter = produkter.filter((p) => p.category === "workshop");
   section {
     margin-top: 3.5rem;
     background-color: var(--color-quaternary);
-    padding: 10px;
+    padding: 30px;
     position: relative;
     border-radius: 10px;
     padding: 30px;
@@ -112,15 +118,15 @@ const workshopProdukter = produkter.filter((p) => p.category === "workshop");
   .section2 {
     width: 100%;
     height: auto;
-    opacity: 0.2;
+    opacity: 0.1;
     position: absolute;
-    left: 50%;
-    top: 10%;
+    left: 0;
+    top: 30%;
   }
   .section3 {
     width: 60%;
     height: auto;
-    opacity: 0.2;
+    opacity: 0.1;
     position: absolute;
     right: 0;
     top: 0;
@@ -150,7 +156,6 @@ const workshopProdukter = produkter.filter((p) => p.category === "workshop");
     scroll-snap-align: start;
     background: var(--color-quaternary);
     border-radius: 10px;
-    padding: 1rem;
     text-align: center;
     display: flex;
     flex-direction: column;
@@ -165,17 +170,16 @@ const workshopProdukter = produkter.filter((p) => p.category === "workshop");
     color: var(--color-secondary);
     border: none;
     font-size: 2rem;
-    padding: 0.5rem;
-    z-index: 10;
+    z-index: 90;
     cursor: pointer;
   }
 
   .arrow.left {
-    left: 0.5rem;
+    left: 0;
   }
 
   .arrow.right {
-    right: 0.5rem;
+    right: 0;
   }
   .arrow:hover {
     transition: 0.3s;
@@ -185,15 +189,13 @@ const workshopProdukter = produkter.filter((p) => p.category === "workshop");
   /* Desktop */
   @media (min-width: 768px) {
     .carousel {
-      overflow-x: visible;
-      flex-wrap: wrap;
-      justify-content: space-between;
+      overflow-x: auto;
+      flex-wrap: nowrap;
+      justify-content: flex-start;
     }
-    .arrow {
-      display: none;
-    }
+
     .card {
-      flex: 0 0 5%;
+      flex: 0 0 35%;
     }
     .grid_1-1 {
       display: grid;

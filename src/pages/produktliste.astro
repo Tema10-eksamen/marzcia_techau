@@ -1,8 +1,7 @@
 ---
 import MainLayout from "../layouts/MainLayout.astro";
 import Header from "../components/Header.astro";
-import ProduktlisteHero from "../components/ProduktlisteHero.astro";
-import ProduktlisteSection from "../components/ProduktlisteSection.astro";
+import ProduktListeHero from "../components/ProduktListeHero.astro";
 import ProduktListe from "../components/ProduktListe.astro";
 
 const url = "https://dnpgtyenhpfiuzuowouj.supabase.co/rest/v1/produkter";
@@ -22,7 +21,7 @@ console.log("data", data);
 
 <MainLayout>
   <Header />
-  <ProduktlisteHero />
+  <ProduktListeHero />
   <!-- Send data som prop til ProduktlisteSection -->
   <ProduktListe produkter={data} />
 </MainLayout>

@@ -2,7 +2,7 @@
 
 ---
 
-<header>
+<header class="header">
   <div class="logo"><a href="/">MARZCIA TECHAU</a></div>
   <nav>
     <ul class="menu">
@@ -10,7 +10,7 @@
       <li><a href="/uddannelser">UDDANNELSER</a></li>
       <li><a href="/">SHOP</a></li>
       <li><a href="/biografi">OM MIG</a></li>
-      <!-- <li><a class="basket" href="/biografi"><img src="icons/basket_icon.svg" alt="..." /></a></li> -->
+      <li><a class="basket" href="/biografi"><img src="icons/basket_icon.svg" alt="..." /></a></li>
     </ul>
   </nav>
 
@@ -22,21 +22,27 @@
 </header>
 
 <style>
-  header {
+  .header {
     position: sticky;
     display: flex;
+    top: 0;
     padding: 20px;
     width: 100%;
     justify-content: space-between;
     align-items: center;
     align-content: end;
+    justify-items: center;
     font-family: var(--font-heading);
     font-weight: 500;
     background-color: var(--color-secondary);
     box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
-    z-index: 100;
+    z-index: 1000;
   }
-
+  .basket {
+    aspect-ratio: 41/34;
+    width: 2px;
+    height: 2px;
+  }
   .logo a {
     color: var(--color-primary);
     text-decoration: none;
@@ -130,6 +136,18 @@
   }
 </style>
 <script>
+  //hjælp fra youtube
+  const headerEl = document.querySelector(".header");
+
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > 50) {
+      // hvis px er over 50 vises header
+      headerEl.classList.add("header_scroll");
+    } else if (window.scrollY <= 50) {
+      // hvis px er over 50 vises header
+      headerEl.classList.remove("header_scroll");
+    }
+  });
   const burger = document.querySelector(".burger");
   const nav = document.querySelector("nav");
   const menu = document.querySelector(".menu");
