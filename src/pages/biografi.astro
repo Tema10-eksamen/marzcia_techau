@@ -1,6 +1,7 @@
 ---
 import MainLayout from "../layouts/MainLayout.astro";
 import Header1 from "../components/Header1.astro";
+import Button from "../components/Button.astro";
 ---
 
 <MainLayout>
@@ -77,30 +78,24 @@ import Header1 from "../components/Header1.astro";
     <div class="info_grid margin">
       <div>
         <h2>FORSTÅ SENSITIVE</h2>
-        <p>
-          Det er ligeså vigtigt at lære om, hvordan denne sensitivitet i ens liv kan skabe problemer, fordi man ikke er opmærksomme på, hvor hurtigt man kan opfange andres følelser og stemninger.<br />
-          Det ligger mig meget på sinde at videregive redskaber som hjælper andre, både unge og voksne, til at kunne takle sådanne problemstillinger.
-        </p>
+        <p>Det er ligeså vigtigt at lære om, hvordan denne sensitivitet i ens liv kan skabe problemer, fordi man ikke er opmærksomme på, hvor hurtigt man kan opfange andres følelser og stemninger. Det ligger mig meget på sinde at videregive redskaber som hjælper andre, både unge og voksne, til at kunne takle sådanne problemstillinger.</p>
       </div>
 
       <div>
         <h2>OMTALE I PRESSEN</h2>
-        <p>
-          Jeg tror på åbenhed og ærlighed som en vej til at afmystificere åndernes verden. Derfor har jeg blandt andet medvirket i forskellige artikler samt tv- og radioprogrammer gennem tiden.<br />
-          Her kan du klikke dig videre til et udvalg af udsendelser og artikler, som jeg har deltaget i.
-        </p>
+        <p>Jeg tror på åbenhed og ærlighed som en vej til at afmystificere åndernes verden. Derfor har jeg blandt andet medvirket i forskellige artikler samt tv- og radioprogrammer gennem tiden. Her kan du klikke dig videre til et udvalg af udsendelser og artikler, som jeg har deltaget i.</p>
       </div>
     </div>
 
     <div class="button_group">
-      <button>TV</button>
-      <button>Radio</button>
-      <button>Podcasts</button>
-      <button>Artikler</button>
+      <Button text="TV" />
+      <Button text="Radio" />
+      <Button text="Podcasts" />
+      <Button text="Artikler" />
     </div>
   </section>
 
-  <section>
+  <section class="margin">
     <h2>HVIS DU VIL VIDE MERE...</h2>
   </section>
 
@@ -119,9 +114,6 @@ import Header1 from "../components/Header1.astro";
   <style>
     /***************** Hero sektion ****************/
 
-    .margin {
-      margin: 2rem;
-    }
     .hero {
       background-color: var(--color-secondary);
       color: var(--color-primary);
@@ -272,25 +264,8 @@ import Header1 from "../components/Header1.astro";
 
     .button_group {
       display: flex;
-      flex-wrap: wrap;
       justify-content: center;
-      gap: 1rem;
-      margin-top: 2rem;
-    }
-
-    .button_group button {
-      background-color: var(--color-accent);
-      color: var(--color-primary);
-      border: none;
-      padding: 0.6rem 1.4rem;
-      border-radius: 5px;
-      font-size: 1rem;
-      cursor: pointer;
-      transition: 0.3s ease;
-    }
-
-    .button_group button:hover {
-      background-color: var(--color-hover);
+      gap: 15px;
     }
 
     /************* Bog sektion **************/
@@ -359,6 +334,10 @@ import Header1 from "../components/Header1.astro";
         position: relative;
         top: 0;
         left: 20%;
+      }
+
+      .info_sektion p {
+        max-width: 69ch;
       }
     }
   </style>

@@ -1,35 +1,47 @@
 ---
+import Button from "./Button.astro";
 const { data } = Astro.props;
 ---
 
 <section class="info">
-  <h1>Titel</h1>
+  <h1>{data.title}</h1>
+  <p>{data.number}</p>
   <div class="grid-1-1">
     <p>Beskrivelse</p>
   </div>
 </section>
-<section>
-  <div class="grid_1-1">
-    <div></div>
+<section class="sektion">
+  <div class="grid_1-1 margin">
+    <div><img class="illustration" src={data.image_url} alt={data.title} /></div>
     <div>
       <h2>Uddannelsens rammer:</h2>
+      <p>{data.days}</p>
+      <p>Dato:</p>
+      <p>{data.date_start} - {data.date_end}</p>
+      <p>Tidspunkt:</p>
+      <p>{data.time}</p>
+      <Button text="Book" />
     </div>
   </div>
 </section>
 
+<div class="grid_1-1 margin">
+  <div>
+    <p>Når du har sagt JA til at arbejde med dine spirituelle kontakt, vil det ofte også sætte personlige processer igang, allerede før kursus start.</p>
+    <p>Processerne kan være både fysiske og psykiske, så hav fokus på at det er helt normal at der kan komme en proces igang, op til kurset og efter kurset. Hvis der er yderligere spørgsmål, så bare kontakt mig på healer@marzcia.dk.</p>
+  </div>
+  <div>
+    <p>Tilmeldingen er bindende, men ved afbud senest en uge (7 dage) FØR kursusstart, får du dit indbetalte beløb tilbage (minus administrationsgebyr på 1.9% + 1,80 kr.). Derefter er det ikke længere muligt at få refunderet beløbet.</p>
+    <p>Hvis der er yderligere spørgsmål, så bare kontakt mig på healer@marzcia.dk.</p>
+  </div>
+</div>
 <style>
-  button {
-    background-color: var(--color-accent);
-    border: none;
-    color: var(--color-primary);
-    cursor: pointer;
-    border-radius: 6px;
-    padding: 0.6rem 1.4rem;
-    font-size: 1rem;
-    transition: background-color 0.3s ease;
+  .sektion {
+    background-color: var(--color-quaternary);
   }
-
-  button:hover {
-    background-color: #5e1f1f;
+  .grid_1-1 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
   }
 </style>
