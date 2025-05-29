@@ -9,7 +9,7 @@
         <img src="/icons/email_icon.svg" alt="email" />
         <p>E-mail: healer@marzcia.dk</p>
       </div>
-      <div class="flex">
+      <div>
         <img src="/icons/in_icon.svg" alt="insta" />
         <img src="/icons/fa_icon.svg" alt="facebook" />
       </div>
@@ -34,7 +34,8 @@
   }
   .flex {
     display: flex;
-    gap: 5px;
+    flex-direction: row;
+    gap: 10px;
   }
 
   img {
@@ -42,15 +43,20 @@
     height: auto;
   }
 
-  @media (min-width: 800px) {
+  @media (min-width: 768px) {
     img {
-      width: 4%;
+      width: 50px;
       height: auto;
     }
     .flex {
       padding-top: 20px;
       display: flex;
       gap: 15px;
+    }
+    .grid_1_1 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
     }
   }
 </style>
