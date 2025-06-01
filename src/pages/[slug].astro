@@ -1,0 +1,35 @@
+---
+// src/pages/produkt/[slug].astro
+import MainLayout from "../layouts/MainLayout.astro";
+import Header from "../components/Header.astro";
+import ProduktSection from "../components/ProduktSection.astro";
+
+export async function getStaticPaths() {
+  const url = "https://dnpgtyenhpfiuzuowouj.supabase.co/rest/v1/produkter";
+  const key = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRucGd0eWVuaHBmaXV6dW93b3VqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDgxNzMwNDMsImV4cCI6MjA2Mzc0OTA0M30.a2urN_GjsBGRyl-xq_xvUG7vmczmdfkbSt7YHwx9_oM";
+
+  const response = await fetch(url, {
+    headers: {
+      apikey: key,
+      Authorization: `Bearer ${key}`,
+    },
+  });
+
+  const produkter = await response.json();
+
+  return produkter.map((produkt) => ({
+    params: { slug: String(produkt.id) }, // vigtigt at det er en string
+    props: { produkt },
+  }));
+}
+
+const { produkt } = Astro.props;
+const { title, description, price, image } = produkt;
+---
+
+<MainLayout>
+  <Header />
+  <section>
+    <ProduktSection data={produkt} />
+  </section>
+</MainLayout>

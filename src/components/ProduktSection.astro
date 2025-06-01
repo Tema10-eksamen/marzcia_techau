@@ -7,20 +7,21 @@ const { data } = Astro.props;
   <h1>{data.title}</h1>
   <p>{data.number}</p>
   <div class="grid-1-1">
-    <p>Beskrivelse</p>
+    <p>{data.description}</p>
   </div>
 </section>
 <section class="sektion">
   <div class="grid_1-1 margin">
-    <div><img class="illustration" src={data.image_url} alt={data.title} /></div>
-    <div>
+    <div class="afstand"><img class={`illustration ${data.image2_url.includes("engle") ? "engel-size" : data.image2_url.includes("reiki") ? "reiki-size" : "workshop-size"}`} src={data.image2_url} alt={data.title} /></div>
+    <div class="afstand">
       <h2>Uddannelsens rammer:</h2>
       <p>{data.days}</p>
       <p>Dato:</p>
       <p>{data.date_start} - {data.date_end}</p>
       <p>Tidspunkt:</p>
       <p>{data.time}</p>
-      <Button text="Book" />
+      <br />
+      <a href="#form"><Button text="Tilmeld dig her" /> </a>
     </div>
   </div>
 </section>
@@ -35,13 +36,183 @@ const { data } = Astro.props;
     <p>Hvis der er yderligere spørgsmål, så bare kontakt mig på healer@marzcia.dk.</p>
   </div>
 </div>
+
+<section class="form-section" id="form">
+  <div class="form-container">
+    <h2>Udfyld formular</h2>
+    <p>Udfyld formularen og meld dig til dit næste forløb</p>
+    <form>
+      <label for="name">Navn</label>
+      <input type="text" id="name" placeholder="Skriv dit fulde navn" required />
+
+      <label for="phone">Telefon</label>
+      <input type="tel" id="phone" placeholder="(+45)" required />
+
+      <label for="email">Email</label>
+      <input type="email" id="email" placeholder="Privat email" required />
+
+      <label for="motivation">Motivation</label>
+      <textarea id="motivation" placeholder="Beskriv kort hvorfor du vil være frivillig" required></textarea>
+
+      <label for="experience">Erfaring</label>
+      <textarea id="experience" placeholder="Har du tidligere arbejdet med misbrugs-behandling? Hvis ja, beskriv kort din erfaring"></textarea>
+
+      <div class="terms">
+        <input type="checkbox" id="terms" required />
+        <label for="terms">Jeg accepterer alle <a href="#">Termer</a></label>
+      </div>
+
+      <Button text="Insend" />
+      <!-- <button type="submit">INDSEND</button> -->
+    </form>
+  </div>
+</section>
 <style>
   .sektion {
     background-color: var(--color-quaternary);
+    margin-top: 2rem;
   }
   .grid_1-1 {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 10px;
+  }
+  .info {
+    margin-left: 4rem;
+    margin-right: 4rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    width: 80ch;
+  }
+  .illustration {
+    width: 20%;
+    margin-left: 12rem;
+  }
+
+  .afstand {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+  }
+  .form-section {
+    text-align: center;
+    padding: 50px;
+  }
+  .form-container {
+    margin-top: 1rem;
+    background-color: var(--color-quaternary);
+    padding: 20px;
+    border-radius: 8px;
+    max-width: 800px;
+    margin: auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  form {
+    margin-top: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  label {
+    padding-top: 0.8rem;
+    font-family: var(--font-text);
+    text-align: left;
+    color: var(--color-secondary);
+  }
+  input,
+  textarea {
+    font-family: var(--font-text);
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+
+  .terms {
+    display: flex;
+    align-items: center;
+    gap: 8px; /* Controls spacing between checkbox and text */
+  }
+
+  .terms input {
+    width: 16px; /* Adjust checkbox size */
+    height: 16px;
+    cursor: pointer;
+  }
+
+  .terms label {
+    font-family: var(--font-text);
+
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+
+  .terms a {
+    color: inherit;
+    text-decoration: underline;
+  }
+  .engel-size {
+    width: 55%;
+    margin-left: 5rem;
+    margin-top: 3rem;
+  }
+  .workshop-size {
+    width: 40%;
+  }
+  @media (max-width: 768px) {
+    .form-container {
+      max-width: 100%;
+      padding: 15px;
+      border-radius: 0; /* Remove rounded corners for a clean look */
+    }
+
+    .form-section {
+      padding: 30px 15px; /* Reduce padding */
+    }
+
+    input,
+    textarea {
+      font-size: var(--font-size-xs-mobile); /* Adjust font size for mobile */
+      padding: 8px; /* Reduce padding for better spacing */
+    }
+
+    label {
+      font-size: var(--font-size-sm); /* Adjust label font size */
+    }
+    .engel-size {
+      width: 100%;
+      margin-left: -0.5rem;
+      margin-top: 6rem;
+    }
+    .info {
+      margin-left: 1rem;
+      margin-right: 1rem;
+      margin-top: 2rem;
+      margin-bottom: 2rem;
+      width: 45ch;
+    }
+    .workshop-size {
+      width: 40%;
+      margin-left: 7rem;
+    }
+    .grid_1-1 {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+      margin-bottom: 1rem;
+    }
+    .afstand {
+      margin-bottom: 1rem;
+    }
+
+    .reiki-size {
+      width: 20%;
+      margin-left: 9rem;
+    }
+    .engel-size {
+      width: 55%;
+      margin-left: 5rem;
+      margin-top: 3rem;
+    }
   }
 </style>
