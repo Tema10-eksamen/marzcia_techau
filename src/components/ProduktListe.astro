@@ -23,17 +23,19 @@ const workshopProdukter = produkter.filter((p) => p.category === "workshop");
 
     <div class="carousel-wrapper">
       <button class="arrow left">&#10094;</button>
-      <a href="produkt">
-        <div class="carousel">
-          {
-            reikiProdukter.map((produkt) => (
-              <div class="card" key={produkt.id}>
-                <ProduktListCard data={produkt} />
-              </div>
-            ))
-          }
-        </div>
-      </a>
+      <div class="carousel">
+        {
+          reikiProdukter.map((produkt) => {
+            return (
+              <a href={`/${produkt.id}`}>
+                <div class="card" key={produkt.id}>
+                  <ProduktListCard data={produkt} />
+                </div>
+              </a>
+            );
+          })
+        }
+      </div>
       <button class="arrow right">&#10095;</button>
     </div>
   </div>
@@ -54,9 +56,11 @@ const workshopProdukter = produkter.filter((p) => p.category === "workshop");
         <div class="carousel">
           {
             engleProdukter.map((produkt) => (
-              <div class="card" key={produkt.id}>
-                <ProduktListCard data={produkt} />
-              </div>
+              <a href={`/${produkt.id}`} key={produkt.id}>
+                <div class="card">
+                  <ProduktListCard data={produkt} />
+                </div>
+              </a>
             ))
           }
         </div>
@@ -84,9 +88,11 @@ const workshopProdukter = produkter.filter((p) => p.category === "workshop");
         <div class="carousel">
           {
             workshopProdukter.map((produkt) => (
-              <div class="card" key={produkt.id}>
-                <ProduktListCard data={produkt} />
-              </div>
+              <a href={`/${produkt.id}`} key={produkt.id}>
+                <div class="card">
+                  <ProduktListCard data={produkt} />
+                </div>
+              </a>
             ))
           }
         </div>
