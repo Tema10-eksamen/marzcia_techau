@@ -16,7 +16,7 @@ const workshopProdukter = produkter.filter((p) => p.category === "workshop");
       <div>
         <h2>REIKI</h2>
         <p>Idéen bag Reiki-healing er, at alt i universet er energi, og at healeren kan fungere som en slags kanal for en universel livsenergi, som healeren overfører til sin klient. Jeg ser Reiki som en universel kærlighedsenergi af hvidt lys, der er til stede i hele verden og hele universet. <br /><br />Alle kan lære at heale med Reiki og der er ikke nogen religion forbundet til det.</p>
-        <p>Mine kommende Reiki-uddannelser:</p>
+        <p class="styling">Mine kommende Reiki-uddannelser:</p>
       </div>
       <br />
     </div>
@@ -45,7 +45,7 @@ const workshopProdukter = produkter.filter((p) => p.category === "workshop");
       <div>
         <h2>ENGLEHEALING</h2>
         <p>På kurser i englehealing lærer du de engle at kende, som hjælper dig i dit liv, og du undervises i at heale med engleenergi.  Dette er nogle intense todageskurser i at kontakte engledimensionen, og kunne bruge den kontakt både til dig selv og til at heale andre. Du behøver ikke at have healet før for at deltage, men du skal være vant til guidede meditationer.</p>
-        <p>Mine kommende Englehealings-uddannelser:</p>
+        <p class="styling">Mine kommende Englehealings-uddannelser:</p>
       </div>
     </div>
     <div class="carousel-wrapper">
@@ -74,7 +74,7 @@ const workshopProdukter = produkter.filter((p) => p.category === "workshop");
         <div>
           <h2>HEALINGSWORKSHOP</h2>
           <p>Mine healingsworkshops er til for at hjælpe dig til at styrke din healingsenergi og forbedre dit samarbejde med den åndelige verden. Der vil være individuelt fokus på, hvad du som rutineret healer gerne vil blive bedre til, og hvis du er helt uden tidligere erfaring for healing, vil du få hjælp til at komme i gang med at heale. Der vil være undervisning i at bruge dine clairvoyante evner i dit healingsarbejde. Teori om traume forløsning og integration mellem sjæl og krop for at give en bedre forståelse af healingsprocesserne i din klient.</p>
-          <p>Mine kommende Healingsworkshops:</p>
+          <p class="styling">Mine kommende Healingsworkshops:</p>
         </div>
       </div>
     </div>
@@ -143,7 +143,7 @@ const workshopProdukter = produkter.filter((p) => p.category === "workshop");
 
   .carousel {
     display: flex;
-    gap: 1rem;
+    gap: 10rem;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
     padding: 1rem;
@@ -186,6 +186,12 @@ const workshopProdukter = produkter.filter((p) => p.category === "workshop");
     color: var(--color-mocha);
   }
 
+  .styling {
+    font-weight: 500;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+  }
+
   /* Desktop */
   @media (min-width: 768px) {
     .carousel {
@@ -195,7 +201,7 @@ const workshopProdukter = produkter.filter((p) => p.category === "workshop");
     }
 
     .card {
-      flex: 0 0 35%;
+      flex: 0 0 15%;
     }
     .grid_1-1 {
       display: grid;
