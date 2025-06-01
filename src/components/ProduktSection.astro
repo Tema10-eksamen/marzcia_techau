@@ -14,7 +14,7 @@ const { data } = Astro.props;
   <div class="grid_1-1 margin">
     <div class="afstand"><img class={`illustration ${data.image2_url.includes("engle") ? "engel-size" : data.image2_url.includes("reiki") ? "reiki-size" : "workshop-size"}`} src={data.image2_url} alt={data.title} /></div>
     <div class="afstand">
-      <h2>Uddannelsens rammer:</h2>
+      <h2>UDDANNELSENS RAMMER:</h2>
       <p>{data.days}</p>
       <p>Dato:</p>
       <p>{data.date_start} - {data.date_end}</p>
@@ -39,7 +39,7 @@ const { data } = Astro.props;
 
 <section class="form-section" id="form">
   <div class="form-container">
-    <h2>Udfyld formular</h2>
+    <h2>UDFYLD FORMULAR</h2>
     <p>Udfyld formularen og meld dig til dit næste forløb</p>
     <form>
       <label for="name">Navn</label>
@@ -60,7 +60,6 @@ const { data } = Astro.props;
       </div>
 
       <Button text="Insend" />
-      <!-- <button type="submit">INDSEND</button> -->
     </form>
   </div>
 </section>
@@ -122,6 +121,7 @@ const { data } = Astro.props;
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
+    background-color: var(--color-primary);
   }
 
   .terms {
@@ -211,5 +211,26 @@ const { data } = Astro.props;
       margin-left: 5rem;
       margin-top: 3rem;
     }
+  }
+
+  h1 {
+    font-family: var(--font-heading);
+    font-weight: 700; /* Bold */
+    font-style: normal;
+    color: var(--color-secondary);
+  }
+  h2 {
+    font-family: var(--font-heading);
+    font-weight: 600; /* Semibold */
+    color: var(--color-secondary);
+    margin-top: 0.5rem;
+  }
+
+  p {
+    font-family: var(--font-text);
+    font-weight: 400; /* Regular */
+    color: var(--color-secondary);
+    margin-top: 0.5rem;
+    line-height: 1.4;
   }
 </style>
