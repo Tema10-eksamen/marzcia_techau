@@ -6,12 +6,17 @@
   <div class="grid_1_1">
     <div>
       <div class="flex">
-        <img src="/icons/email_icon.svg" alt="email" />
-        <p>E-mail: healer@marzcia.dk</p>
+      <a href="mailto:healer@marzcia.dk" class="contact_link"><img src="/icons/email_icon.svg" alt="email" />
+          <p>E-mail: healer@marzcia.dk</p>
+        </a>
       </div>
-      <div>
-        <img src="/icons/in_icon.svg" alt="insta" />
-        <img src="/icons/fa_icon.svg" alt="facebook" />
+      <div class="ikoner">
+        <a href="https://www.instagram.com/marzcia.techau/?hl=da" target="_blank">
+          <img src="/icons/in_icon.svg" alt="insta" />
+        </a>
+        <a href="https://www.facebook.com/marzciashealingscenter" target="_blank">
+          <img src="/icons/fa_icon.svg" alt="facebook" />
+        </a>
       </div>
     </div>
     <p>Ønsker du at være træningsperson kan du følge min facebookside Marzcias Healings- & Clairvoyancecenter</p>
@@ -43,6 +48,47 @@
     height: auto;
   }
 
+
+  .contact_link {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    color: inherit;
+    margin-bottom: 16px;
+  }
+
+  .contact_link img {
+    width: 32px;
+    height: 32px;
+  }
+
+  .ikoner {
+    display: flex;
+    gap: 12px;
+    margin-top: 10px;
+  }
+
+  .ikoner a {
+    text-decoration: none;
+  }
+
+  .ikoner img {
+    width: 32px;
+    height: 32px;
+  }
+
+  a {
+  text-decoration: none;
+  color: inherit;
+  outline: none;
+  border: none;
+}
+
+a img {
+  border: none;
+  outline: none;
+}
   @media (min-width: 768px) {
     img {
       width: 50px;
