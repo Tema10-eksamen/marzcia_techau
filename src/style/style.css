@@ -20,20 +20,20 @@
 
 h1 {
   font-family: var(--font-heading);
-  /* font-weight: 700; Bold */
+  font-weight: 700; /*Bold */
   font-style: normal;
   color: var(--color-secondary);
 }
 h2 {
   font-family: var(--font-heading);
-  /*font-weight: 600; Semibold */
+  font-weight: 600; /*Semibold*/
   color: var(--color-secondary);
   margin-top: 0.5rem;
 }
 
 p {
   font-family: var(--font-text);
-  /*font-weight: 400;  Regular */
+  font-weight: 400; /*Regular*/
   color: var(--color-secondary);
   margin-top: 0.5rem;
   line-height: 1.4;
